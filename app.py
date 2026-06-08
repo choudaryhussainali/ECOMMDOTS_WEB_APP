@@ -1,6 +1,7 @@
 import sqlite3
 import re
 import datetime
+import os
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -11,19 +12,25 @@ DB_FILE = 'ecommdots.db'
 
 def get_db_connection():
     """Establishes a connection to your data layer."""
-    conn = sqlite3.connect(DB_FILE)
+    # Vercel needs to know the absolute path to find the database in the cloud
+    db_path = os.path.join(os.path.dirname(__file__), DB_FILE)
+    conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
     return conn
 
 def ensure_master_admin():
     """Silently generates your master credentials if they don't exist."""
-    conn = get_db_connection()
-    user = conn.execute("SELECT * FROM users WHERE username = 'admin'").fetchone()
-    if not user:
-        hashed_pw = generate_password_hash('EliteCMS2026!')
-        conn.execute("INSERT INTO users (username, password) VALUES (?, ?)", ('admin', hashed_pw))
-        conn.commit()
-    conn.close()
+    try:
+        conn = get_db_connection()
+        user = conn.execute("SELECT * FROM users WHERE username = 'admin'").fetchone()
+        if not user:
+            hashed_pw = generate_password_hash('EliteCMS2026!')
+            conn.execute("INSERT INTO users (username, password) VALUES (?, ?)", ('admin', hashed_pw))
+            conn.commit()
+        conn.close()
+    except Exception as e:
+        # Prevents Vercel's read-only filesystem from crashing the app on boot
+        pass
 
 def generate_slug(title):
     """Converts a new blog title into a clean, SEO-optimized URL."""
@@ -36,9 +43,6 @@ def generate_slug(title):
 # 1. PUBLIC SEO ROUTES (THE FRONTEND)
 # ==========================================
 
-# ==========================================
-# MAIN AGENCY ROUTES
-# ==========================================
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -58,55 +62,43 @@ def testimonials():
 @app.route('/blog')
 def blog_grid():
     """Initial load: Pulls articles and mathematically generates the Category Nav."""
-    conn = get_db_connection()
-    
-    # 1. Fetch the first 10 articles
-    articles = conn.execute('SELECT * FROM articles ORDER BY created_at DESC LIMIT 10 OFFSET 0').fetchall()
-    total_articles = conn.execute('SELECT COUNT(*) FROM articles').fetchone()[0]
-    
-    # 2. Dynamically calculate exact counts for every category in your database
-    cat_counts_raw = conn.execute('SELECT category, COUNT(*) as count FROM articles GROUP BY category').fetchall()
-    # Convert to a dictionary so Jinja2 can easily loop through it
-    cat_counts = {row['category']: row['count'] for row in cat_counts_raw}
-    
-    conn.close()
+    try:
+        conn = get_db_connection()
+        articles = conn.execute('SELECT * FROM articles ORDER BY created_at DESC LIMIT 10 OFFSET 0').fetchall()
+        total_articles = conn.execute('SELECT COUNT(*) FROM articles').fetchone()[0]
+        cat_counts_raw = conn.execute('SELECT category, COUNT(*) as count FROM articles GROUP BY category').fetchall()
+        cat_counts = {row['category']: row['count'] for row in cat_counts_raw}
+        conn.close()
+    except:
+        articles, total_articles, cat_counts = [], 0, {}
     
     return render_template('blog_grid.html', articles=articles, total_articles=total_articles, cat_counts=cat_counts)
 
 @app.route('/api/load_more')
 def load_more():
-    """Asynchronous API that handles BOTH Pagination and Category Filtering."""
     offset = int(request.args.get('offset', 0))
     category = request.args.get('category', 'all')
     limit = 10
     
     conn = get_db_connection()
-    
     if category == 'all':
         articles = conn.execute('SELECT * FROM articles ORDER BY created_at DESC LIMIT ? OFFSET ?', (limit, offset)).fetchall()
         total_in_cat = conn.execute('SELECT COUNT(*) FROM articles').fetchone()[0]
     else:
-        # Securely filter by the exact category requested by the frontend
         articles = conn.execute('SELECT * FROM articles WHERE category = ? ORDER BY created_at DESC LIMIT ? OFFSET ?', (category, limit, offset)).fetchall()
         total_in_cat = conn.execute('SELECT COUNT(*) FROM articles WHERE category = ?', (category,)).fetchone()[0]
-        
     conn.close()
     
-    # We return the HTML fragment AND the new total so the JS knows when to hide the "Load More" button
     html_fragment = render_template('_blog_loop.html', articles=articles)
     
-    # We package the response with custom headers so the frontend JS gets the metadata without breaking the HTML
     from flask import make_response
     response = make_response(html_fragment)
-    response.headers['X-Total-Count'] = total_in_cat
-    response.headers['X-Returned-Count'] = len(articles)
+    response.headers['X-Total-Count'] = str(total_in_cat)
+    response.headers['X-Returned-Count'] = str(len(articles))
     return response
     
-    # Render ONLY the fragment HTML, not the whole page
-    return render_template('_blog_loop.html', articles=articles)
 @app.route('/blog/<string:slug>')
 def article_view(slug):
-    """Generates a dedicated page for a single article based on its URL slug."""
     conn = get_db_connection()
     article = conn.execute('SELECT * FROM articles WHERE slug = ?', (slug,)).fetchone()
     conn.close()
@@ -122,7 +114,6 @@ def article_view(slug):
 
 @app.route('/admin-login', methods=['GET', 'POST'])
 def admin_login():
-    """High-contrast, secure login gateway."""
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
@@ -153,13 +144,10 @@ def admin_login():
 
 @app.route('/admin', methods=['GET', 'POST'])
 def admin_dashboard():
-    """The Command Center: View and Publish Articles."""
     if not session.get('logged_in'):
         return redirect(url_for('admin_login'))
         
     conn = get_db_connection()
-    
-    # If the user submits a new article via the dashboard
     if request.method == 'POST':
         title = request.form['title']
         category = request.form['category']
@@ -171,7 +159,6 @@ def admin_dashboard():
         author_image = request.form['author_image']
         thumbnail_url = request.form['thumbnail_url']
         
-        # Checkboxes for layout modifiers
         is_wide = 1 if 'is_wide' in request.form else 0
         is_featured = 1 if 'is_featured' in request.form else 0
         
@@ -188,7 +175,6 @@ def admin_dashboard():
         except sqlite3.IntegrityError:
             flash('Deploy Failed: An article with a similar title or slug already exists.')
             
-    # Pull all active articles to display in the management table
     articles = conn.execute('SELECT id, title, category, publish_date, slug FROM articles ORDER BY created_at DESC').fetchall()
     conn.close()
     
@@ -196,7 +182,6 @@ def admin_dashboard():
 
 @app.route('/admin/delete/<int:id>', methods=['POST'])
 def delete_article(id):
-    """Permanently purges an article from the database."""
     if not session.get('logged_in'):
         return redirect(url_for('admin_login'))
         
@@ -217,14 +202,10 @@ def logout():
 # ==========================================
 @app.errorhandler(404)
 def page_not_found(e):
-    # 1. If the invalid URL was inside the Intelligence Vault
     if request.path.startswith('/article/') or request.path.startswith('/blog'):
         return render_template('404_vault.html'), 404
-        
-    # 2. For all other invalid agency URLs (services, about, random typos)
     return render_template('404_agency.html'), 404
 
 if __name__ == '__main__':
     ensure_master_admin()
-    # Debug is strictly False for production
     app.run(debug=False)
