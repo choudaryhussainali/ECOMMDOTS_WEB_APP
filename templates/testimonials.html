@@ -1,0 +1,3266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testimonials — Ecommdots | What Tycoons Say</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================================
+   ECOMMDOTS — TESTIMONIALS — MASTER STYLESHEET
+   ========================================================================= */
+
+/* =========================================================================
+   ECOMMDOTS — TESTIMONIALS — MASTER STYLESHEET
+   ========================================================================= */
+
+:root {
+  /* Layout & Backgrounds */
+  --bg:                #050505;
+  --bg-2:              #0a0a0a;
+  --bg-3:              #111111;
+  --bg-light:          #f5f5f5;
+
+  /* Brand Colors */
+  --red:               #d9232d;
+  --white:             #ffffff;
+  --text-inverse:      #ffffff;
+  --gradient-primary:  linear-gradient(135deg, #ff0044 0%, #cc0000 100%);
+
+  /* Typography */
+  --font-d:            'Bebas Neue', sans-serif;
+  --font-s:            'Barlow', sans-serif;
+  --font-display:      'Bebas Neue', sans-serif;
+  --font-sans:         'Barlow', sans-serif;
+
+  /* Motion & Easing */
+  --ease:              cubic-bezier(0.16, 1, 0.3, 1);
+  --transition:        0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; cursor:none !important; }
+html { scroll-behavior:smooth; overflow-x:hidden; }
+body { font-family:var(--font-s); background:var(--bg); color:var(--white); -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+.container { width:90%; max-width:1400px; margin:0 auto; }
+a { text-decoration:none; color:inherit; }
+img { display:block; max-width:100%; }
+
+/* ── CURSOR ── */
+#cur-dot {
+  position:fixed; width:8px; height:8px;
+  background:var(--red); border-radius:50%;
+  pointer-events:none; z-index:9999999;
+  transform:translate(-50%,-50%);
+  transition:width .16s,height .16s,background .16s,opacity .2s;
+  box-shadow:0 0 6px 2px rgba(220,38,38,.55);
+}
+#cur-ring {
+  position:fixed; width:40px; height:40px;
+  border:1.5px solid var(--red); border-radius:50%;
+  pointer-events:none; z-index:9999998;
+  transform:translate(-50%,-50%);
+  transition:width .38s var(--ease),height .38s var(--ease),background .28s,border-color .22s,box-shadow .28s,opacity .2s;
+}
+#cur-dot.hov  { width:12px;height:12px;box-shadow:0 0 14px 5px rgba(220,38,38,.7); }
+#cur-ring.hov { width:64px;height:64px;background:rgba(220,38,38,.08);border-color:#ef4444;box-shadow:0 0 22px 4px rgba(220,38,38,.45); }
+
+/* ── SOCIAL SIDEBAR ── */
+.social-sidebar { position:fixed;right:0;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;z-index:9999; }
+.toggle-btn { width:52px;height:58px;background:#111;border:none;display:flex;align-items:center;justify-content:center;color:#fff;transition:background .2s; }
+.toggle-btn:hover { background:#333; }
+.arrow-icon { width:18px;height:18px;transition:transform .35s var(--ease); }
+.social-sidebar.open .arrow-icon { transform:rotate(180deg); }
+.social-links { overflow:hidden;max-height:0;transition:max-height .35s var(--ease),opacity .3s;opacity:0; }
+.social-sidebar.open .social-links { max-height:200px;opacity:1; }
+.social-btn { width:52px;height:58px;display:flex;align-items:center;justify-content:center;transition:filter .2s; }
+.social-btn svg { width:22px;height:22px; }
+.social-btn:hover { filter:brightness(1.15); }
+.whatsapp-btn { background:#25D366;color:#fff; }
+.email-btn    { background:#E53935;color:#fff; }
+
+/* ─── HEADER ─────────────────────────────────────────────────────────────── */
+/* ─── HEADER (STUDIO PLATINUM MONOLITH - PERMANENTLY PINNED) ─── */
+.main-header {
+    position: fixed;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1400px;
+    background: #0d0d0f; 
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 100px;
+    padding: 8px 16px 8px 24px; 
+    z-index: 1000;
+    box-shadow: 
+        0 40px 80px rgba(0,0,0,0.9), 
+        0 0 0 1px rgba(255,255,255,0.1),
+        0 0 60px rgba(217, 35, 45, 0.25);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ─── BRAND LOGO (PURE VECTOR INTEGRATION) ────────────────────────────── */
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.brand-icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px; 
+    height: 50px;
+    position: relative;
+    will-change: transform;
+}
+
+.brand-icon-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+}
+
+.brand-text {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 2.1rem;
+    letter-spacing: 0.02em;
+    color: var(--text-inverse);
+    line-height: 1;
+    padding-top: 4px;
+    transition: opacity 0.4s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brand-logo:hover .brand-icon-svg {
+    transform: scale(1.08) rotate(4deg); 
+    filter: brightness(1.15); 
+}
+
+.brand-logo:hover .brand-text {
+    opacity: 0.95;
+}
+
+.gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #a0a0a0;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+.nav-controls {
+    display: flex;
+    align-items: center;
+}
+
+/* ─── HEADER BUTTON (HIGH-CONTRAST & KINETIC ENGINE) ───────────── */
+.btn-audit {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 28px;
+    background: #ffffff; 
+    border: 1px solid #ffffff; 
+    border-radius: 100px;
+    color: #111111; 
+    font-family: var(--font-sans);
+    font-size: 11px; 
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-audit::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-primary); 
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-audit:hover {
+    border-color: transparent;
+    color: #ffffff; 
+    box-shadow: 0 12px 30px rgba(217, 35, 45, 0.35);
+    transform: translateY(-2px);
+    padding-left: 32px; 
+    padding-right: 24px;
+}
+
+.btn-audit:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* ─── DROPDOWN NAVIGATION ───────────── */
+.nav-has-dropdown {
+    position: relative;
+    perspective: 1200px; 
+}
+
+.nav-drop-trigger {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.nav-drop-trigger svg {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.3s ease;
+}
+
+.nav-has-dropdown:hover .nav-drop-trigger svg {
+    transform: rotate(180deg);
+    stroke: var(--red);
+}
+
+.nav-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    padding-top: 32px; 
+    transform: translateX(-50%) translateY(20px) rotateX(-10deg);
+    transform-origin: top center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 100;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-has-dropdown:hover .nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0) rotateX(0deg);
+}
+
+.nav-dropdown-inner {
+    background: #0d0d0f; 
+    border: 1px solid rgba(255, 255, 255, 0.12); 
+    border-radius: 12px;
+    padding: 16px; 
+    min-width: 320px; 
+    box-shadow: 
+        0 50px 100px rgba(0, 0, 0, 0.8), 
+        0 0 0 1px rgba(255, 255, 255, 0.05),
+        0 20px 40px rgba(217, 35, 45, 0.15); 
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-dropdown-inner::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 2px;
+    background: var(--gradient-primary);
+}
+
+.nav-links .nav-drop-item {
+    display: flex;
+    flex-direction: column;
+    padding: 18px 24px; 
+    border-radius: 8px;
+    text-transform: none;
+    letter-spacing: normal;
+    text-shadow: none !important;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-links .nav-drop-item:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 0; 
+}
+
+.nav-links .nav-drop-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0; width: 3px;
+    background: var(--red);
+    transform: scaleY(0);
+    transform-origin: center;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-links .nav-drop-item:hover {
+    background: rgba(255, 255, 255, 0.03); 
+    padding-left: 32px; 
+    border-radius: 8px;
+    border-bottom-color: transparent;
+}
+
+.nav-links .nav-drop-item:hover::before {
+    transform: scaleY(1);
+}
+
+.nd-title {
+    font-family: var(--font-sans);
+    font-size: 14px; 
+    font-weight: 700; 
+    color: #ffffff; 
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    transition: color 0.3s ease;
+}
+
+.nav-links .nav-drop-item:hover .nd-title {
+    color: var(--red);
+}
+
+.nd-sub {
+    font-family: var(--font-sans);
+    font-size: 14.5px; 
+    color: rgba(255, 255, 255, 0.6); 
+    font-weight: 400;
+    line-height: 1.5;
+    transition: color 0.3s ease;
+}
+
+.nav-links .nav-drop-item:hover .nd-sub {
+    color: #ffffff; 
+}
+
+.nav-dropdown-inner.mega-menu {
+    min-width: 720px; 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px; 
+    padding: 20px;
+}
+
+.nav-dropdown-inner.mega-menu .nav-drop-item {
+    border-bottom: none !important; 
+    padding: 16px 20px;
+}
+
+.nav-dropdown-inner.mega-menu .nav-drop-item:hover {
+    padding-left: 28px;
+}
+
+/* ─── SOCIAL SIDEBAR OVERRIDES ─── */
+.social-sidebar.open .social-links {
+    max-height: 320px; /* Expanded for 4 icons */
+    opacity: 1;
+}
+.linkedin-btn { background: #0A66C2; color: #ffffff; }
+.youtube-btn { background: #FF0000; color: #ffffff; }
+
+/* ─── CALENDLY OVERRIDES ─── */
+.calendly-overlay {
+    background-color: rgba(5, 5, 5, 0.75) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+}
+.calendly-popup {
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+    height: 720px !important; 
+    max-height: 90vh !important;
+}
+.calendly-overlay, .calendly-popup, .calendly-popup-content { scrollbar-width: none !important; -ms-overflow-style: none !important; }
+.calendly-overlay::-webkit-scrollbar, .calendly-popup::-webkit-scrollbar, .calendly-popup-content::-webkit-scrollbar { display: none !important; }
+.calendly-close-overlay { color: #ffffff !important; opacity: 0.5 !important; transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important; }
+.calendly-close-overlay:hover { opacity: 1 !important; transform: scale(1.15) !important; }
+
+/* ─── HAMBURGER BUTTON & MOBILE NAV OVERLAY ─── */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 1100;
+    flex-shrink: 0;
+}
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #ffffff;
+    border-radius: 2px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: left center;
+}
+.hamburger.is-open span:nth-child(1) { transform: rotate(45deg) translate(1px, -1px); }
+.hamburger.is-open span:nth-child(2) { opacity: 0; transform: translateX(-8px); }
+.hamburger.is-open span:nth-child(3) { transform: rotate(-45deg) translate(1px, 1px); }
+
+.mobile-nav {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 5, 5, 0.98);
+    z-index: 1050;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    padding: 80px 48px 48px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    overflow-y: auto;
+}
+.mobile-nav.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    max-width: 400px;
+}
+.mobile-nav-links a {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 8vw, 56px);
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.04em;
+    text-align: center;
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: color 0.3s;
+}
+.mobile-nav-links a:hover { color: #ffffff; }
+.mobile-nav-links a:last-child { border-bottom: none; }
+.mobile-nav-cta { margin-top: 48px; }
+.mobile-nav-cta .btn-audit { font-size: 12px; padding: 14px 32px; }
+
+/* ─── HEADER MEDIA QUERIES ─── */
+@media(max-width:1024px){
+    .nav-links, .nav-controls .btn-audit { display: none; }
+    .hamburger { display: flex; }
+}
+@media(max-width:768px){
+    .main-header { top: 12px; width: 94%; padding: 10px 16px; }
+    .brand-text { font-size: 1.6rem; }
+    .brand-icon-wrap { width: 40px; height: 40px; }
+    .social-sidebar { display: none !important; } /* Hide on mobile */
+}
+@media(max-width: 480px) {
+    .main-header { top: 10px; width: 96%; padding: 8px 14px; }
+    .brand-text { font-size: 1.4rem; }
+}
+/* =========================================================================
+   HERO — HALL OF PROOF
+   Concept: Massive vertical counter of total reviews, dramatic testimonial
+   quote cuts across the screen, floating star elements, and a portrait strip.
+   ========================================================================= */
+.testi-hero {
+  position:relative; min-height:100vh;
+  display:grid; place-items:center;
+  overflow:hidden; 
+  padding-top:140px;
+  padding-bottom:120px; /* Injected: Forces professional breathing room on shorter viewports */
+  background:var(--bg);
+}
+
+/* Noise texture overlay */
+.testi-hero::before {
+  content:''; position:absolute; inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size:200px 200px;
+  opacity:.6; pointer-events:none; z-index:0;
+}
+
+/* Ambient red bloom */
+.hero-bloom {
+  position:absolute; border-radius:50%;
+  pointer-events:none; z-index:0;
+}
+.bloom-1 { width:900px;height:900px;top:-200px;left:-200px;background:radial-gradient(circle,rgba(217,35,45,.06) 0%,transparent 65%); }
+.bloom-2 { width:600px;height:600px;bottom:-100px;right:-100px;background:radial-gradient(circle,rgba(217,35,45,.04) 0%,transparent 70%); }
+
+/* =========================================================================
+   HERO — VERTICAL LABEL (ASYMMETRICAL VIEWPORT FRAMING)
+   ========================================================================= */
+
+.hero-v-label {
+  position: absolute; 
+  /* The Master Move: Shifted to the left gutter to balance the right-side social sidebar */
+  left: clamp(15px, 3vw, 50px); 
+  top: 50%;
+  
+  /* Native vertical layout, rotated to read from bottom-to-top (standard for left-margin typography) */
+  writing-mode: vertical-rl; 
+  transform: translateY(-50%) rotate(180deg); 
+  
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5em;
+  color: rgba(255, 255, 255, 0.45); /* Premium silver */
+  text-transform: uppercase;
+  white-space: nowrap;
+  z-index: 10;
+  pointer-events: none;
+  
+  /* Flexbox applied to the vertical axis */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px; 
+}
+
+/* Elongated cinematic framing pillars */
+.hero-v-label::before,
+.hero-v-label::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 15vh; /* Elongated to 15vh for a more dramatic structural anchor */
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
+/* Hero inner grid */
+.hero-inner {
+  position:relative; z-index:5;
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:80px; align-items:center;
+  width:100%; max-width:1200px;
+}
+
+/* Left: The Statement */
+.hero-left { }
+.hero-eyebrow {
+  display:inline-flex;align-items:center;gap:12px;
+  margin-bottom:32px;opacity:0;
+  animation:fadeUp .8s var(--ease) .3s forwards;
+}
+.ey-line { width:30px;height:2px;background:var(--red); }
+.ey-text { font-size:12px;font-weight:700;letter-spacing:.2em;color:var(--red);text-transform:uppercase; }
+
+.hero-h1 {
+  font-family:var(--font-d);
+  font-size:clamp(70px,8vw,130px);
+  line-height:.85; letter-spacing:.02em;
+  color:var(--white); margin-bottom:32px;
+  opacity:0; animation:fadeUp .9s var(--ease) .45s forwards;
+}
+.hero-h1 .red { color:var(--red); }
+
+.hero-desc {
+  font-size:18px; font-weight:300; line-height:1.75;
+  color:rgba(255,255,255,.55); max-width:480px;
+  margin-bottom:48px;
+  opacity:0; animation:fadeUp .8s var(--ease) .6s forwards;
+}
+
+.hero-stats-row {
+  display:flex; gap:48px;
+  opacity:0; animation:fadeUp .8s var(--ease) .75s forwards;
+}
+.hstat { display:flex;flex-direction:column; }
+.hstat-num { font-family:var(--font-d);font-size:56px;color:var(--white);line-height:1;letter-spacing:.02em; }
+.hstat-num span { color:var(--red); }
+.hstat-label { font-size:12px;font-weight:700;letter-spacing:.15em;color:rgba(255,255,255,.3);text-transform:uppercase;margin-top:4px; }
+
+/* Right: Floating portrait mosaic */
+.hero-right {
+  position: relative; 
+  height: 600px;
+  opacity: 0; 
+  animation: fadeLeft .9s var(--ease) .5s forwards;
+}
+
+/* The Cards: Premium Glass Edge & Deep Ambient Shadows */
+.portrait-card {
+  position: absolute; 
+  border-radius: 12px; /* Smoother, more modern curve */
+  overflow: hidden;
+  background: #0a0a0a;
+  border: 1px solid rgba(255, 255, 255, 0.08); /* Hairline glass edge */
+  box-shadow: 
+    0 40px 80px rgba(0, 0, 0, 0.9),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15); /* Top rim light */
+  transition: border-color 0.5s ease, box-shadow 0.5s ease; 
+}
+
+/* Grayscale to full-color kinetic interaction */
+.portrait-card img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  object-position: top center; 
+  filter: grayscale(35%) brightness(0.85);
+  transition: filter 0.7s var(--ease), transform 0.7s var(--ease);
+}
+
+.portrait-card::after {
+  content: ''; 
+  position: absolute; 
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(5,5,5,0.9) 100%);
+  pointer-events: none;
+}
+
+/* High-End Hover State */
+.portrait-card:hover {
+  border-color: rgba(217, 35, 45, 0.4); /* Brand red edge bleed */
+  box-shadow: 
+    0 50px 100px rgba(0, 0, 0, 1),
+    0 0 40px rgba(217, 35, 45, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  z-index: 30 !important; /* Forces hovered card to the absolute front */
+}
+.portrait-card:hover img {
+  filter: grayscale(0%) brightness(1.1);
+  transform: scale(1.06);
+}
+
+/* Masterfully orchestrated asymmetrical grid */
+.pc-1 { width: 190px; height: 260px; top: 10px; left: 0; z-index: 1; }
+.pc-2 { width: 290px; height: 390px; top: 70px; left: 150px; z-index: 4; } /* The focal point */
+.pc-3 { width: 160px; height: 220px; top: 20px; right: 20px; z-index: 2; }
+.pc-4 { width: 230px; height: 160px; bottom: 80px; left: -10px; z-index: 3; }
+.pc-5 { width: 200px; height: 230px; bottom: 15px; right: 40px; z-index: 2; }
+
+/* Quote badge floating over mosaic */
+.hero-quote-badge {
+  position: absolute; 
+  bottom: -15px; 
+  left: 55%; /* Shifted right to anchor the visual weight of pc-2 */
+  transform: translateX(-50%);
+  background: rgba(13, 13, 15, 0.75); /* Darker, richer glass */
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 3px solid var(--red);
+  border-radius: 8px; 
+  padding: 24px 28px;
+  width: 350px; 
+  z-index: 10;
+  animation: floatY 6s ease-in-out infinite 1.5s;
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.8), 
+    0 0 40px rgba(217, 35, 45, 0.12); /* Ambient red drop shadow */
+}
+.hqb-quote { font-size:16px; font-weight:300; font-style:italic; color:rgba(255,255,255,.9); line-height:1.6; margin-bottom:14px; }
+.hqb-author { display:flex; align-items:center; gap:12px; }
+.hqb-avatar { width:38px; height:38px; border-radius:50%; object-fit:cover; border:2px solid var(--red); }
+.hqb-name { font-size:13px; font-weight:700; color:var(--white); letter-spacing:.05em; }
+.hqb-role { font-size:11px; color:var(--red); text-transform:uppercase; letter-spacing:.1em; font-weight:600; }
+.hqb-stars { display:flex; gap:3px; margin-bottom:8px; }
+.hqb-stars svg { width:14px; height:14px; fill:var(--red); }
+
+/* =========================================================================
+   SECTION UTILITY
+   ========================================================================= */
+.section-eyebrow { display:inline-flex;align-items:center;gap:12px; }
+.section-eyebrow .ey-line { width:30px;height:2px;background:var(--red); }
+.section-eyebrow .ey-text { font-size:12px;font-weight:700;letter-spacing:.2em;color:var(--red);text-transform:uppercase; }
+
+.reveal { opacity:0;transform:translateY(40px);transition:all 1s var(--ease); }
+.reveal.from-left  { transform:translateX(-50px); }
+.reveal.from-right { transform:translateX(50px); }
+.reveal.scale      { transform:scale(.95); }
+.reveal.is-visible { opacity:1!important;transform:none!important; }
+.del-1 { transition-delay:.1s; }
+.del-2 { transition-delay:.2s; }
+.del-3 { transition-delay:.3s; }
+.del-4 { transition-delay:.4s; }
+
+/* =========================================================================
+   MARQUEE STRIP
+   ========================================================================= */
+.proof-strip {
+  background:var(--bg-3); border-top:1px solid rgba(255,255,255,.03);
+  border-bottom:2px solid var(--red); padding:18px 0;
+  overflow:hidden; display:flex;
+}
+.proof-strip::before,.proof-strip::after {
+  content:''; position:absolute;top:0;bottom:0;width:150px;z-index:2;pointer-events:none;
+}
+.proof-strip { position:relative; }
+.proof-strip::before { left:0;background:linear-gradient(90deg,var(--bg-3),transparent); }
+.proof-strip::after  { right:0;background:linear-gradient(-90deg,var(--bg-3),transparent); }
+.strip-track { display:flex;gap:40px;width:max-content;align-items:center;animation:stripScroll 30s linear infinite; }
+.strip-item { display:flex;align-items:center;gap:40px;white-space:nowrap; }
+.strip-text { font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35); }
+.strip-dot  { width:5px;height:5px;border-radius:50%;background:var(--red); }
+@keyframes stripScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+/* =========================================================================
+   VIDEO TESTIMONIALS
+   ========================================================================= */
+.video-section {
+  background:var(--bg-2); padding:120px 0;
+  position:relative; overflow:hidden;
+}
+.video-section::before {
+  content:''; position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(217,35,45,.5),transparent);
+}
+
+.section-header { text-align:center; margin-bottom:80px; }
+.section-header h2 { font-family:var(--font-d);font-size:clamp(52px,7vw,100px);line-height:.9;letter-spacing:.02em;margin-top:12px; }
+.section-header p  { font-size:18px;color:rgba(255,255,255,.45);max-width:550px;margin:20px auto 0;line-height:1.7;font-weight:300; }
+
+/* Video carousel */
+.video-carousel-wrap {
+  position:relative;
+  -webkit-mask-image:linear-gradient(to right,transparent 0,black 6%,black 94%,transparent 100%);
+  mask-image:linear-gradient(to right,transparent 0,black 6%,black 94%,transparent 100%);
+  overflow:hidden;
+}
+.video-track {
+  display:flex; gap:28px;
+  transition:transform .7s var(--ease);
+  padding:20px 0;
+}
+
+.video-card {
+  flex-shrink:0; width:380px;
+  background:var(--bg-3);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:12px; overflow:hidden;
+  transition:all .5s var(--ease);
+  position:relative;
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+.video-card:hover {
+  transform:translateY(-12px);
+  border-color:rgba(217,35,45,.3);
+  box-shadow:0 30px 60px rgba(0,0,0,.7),0 0 30px rgba(217,35,45,.1);
+}
+
+/* Thumbnail area */
+.vc-thumb {
+  position:relative; height:240px; overflow:hidden;
+  background:#0a0a0a;
+}
+.vc-thumb img {
+  width:100%;height:100%;object-fit:cover;object-position:center top;
+  filter:grayscale(15%) brightness(.9);
+  transition:transform .8s var(--ease),filter .5s;
+}
+.video-card:hover .vc-thumb img { transform:scale(1.06);filter:grayscale(0%) brightness(1); }
+
+/* Play button */
+.vc-play {
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:rgba(5,5,5,.3);
+  transition:background .4s;
+}
+.video-card:hover .vc-play { background:rgba(5,5,5,.15); }
+.vc-play-btn {
+  width:64px;height:64px;border-radius:50%;
+  background:rgba(217,35,45,.9);
+  backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:center;
+  border:2px solid rgba(255,255,255,.3);
+  transition:all .4s var(--ease);
+  box-shadow:0 0 0 0 rgba(217,35,45,.4);
+  animation:pulsePlay 2.5s ease-in-out infinite;
+}
+.video-card:hover .vc-play-btn { transform:scale(1.12);background:var(--red);box-shadow:0 10px 30px rgba(217,35,45,.5); }
+.vc-play-btn svg { width:22px;height:22px;fill:#fff;margin-left:3px; }
+
+/* Duration badge */
+.vc-duration {
+  position:absolute;bottom:12px;right:12px;
+  background:rgba(5,5,5,.75);backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.1);
+  padding:4px 10px;border-radius:4px;
+  font-size:12px;font-weight:700;letter-spacing:.05em;color:#fff;
+}
+
+/* Stars on thumbnail */
+.vc-stars {
+  position:absolute;top:14px;left:14px;
+  display:flex;gap:3px;
+}
+.vc-stars svg { width:13px;height:13px;fill:var(--red); }
+
+/* Card body */
+.vc-body { padding:28px 26px 30px; }
+.vc-meta { font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:12px; }
+.vc-quote {
+  font-size:15px;color:rgba(255,255,255,.75);line-height:1.65;font-weight:300;font-style:italic;
+  margin-bottom:22px;
+  border-left:2px solid rgba(217,35,45,.5); padding-left:16px;
+}
+.vc-author { display:flex;align-items:center;gap:14px; }
+.vc-avatar { width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid rgba(217,35,45,.4); }
+.vc-name { font-weight:700;font-size:15px;color:#fff;margin-bottom:2px; }
+.vc-role { font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--red); }
+.vc-platform { margin-top:4px;font-size:11px;color:rgba(255,255,255,.3);font-weight:600;letter-spacing:.05em; }
+
+/* Carousel controls */
+.carousel-controls { display:flex;align-items:center;justify-content:center;gap:16px;margin-top:56px; }
+.cc-btn {
+  width:52px;height:52px;border-radius:50%;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  transition:all .4s var(--ease);
+}
+.cc-btn:hover { background:var(--red);border-color:var(--red);box-shadow:0 10px 24px rgba(217,35,45,.3);transform:translateY(-3px); }
+.cc-btn svg { width:20px;height:20px;stroke:currentColor;stroke-width:2;fill:none; }
+.cc-dots { display:flex;gap:10px;align-items:center; }
+.cc-dot { width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.15);transition:all .4s var(--ease);cursor:pointer; }
+.cc-dot.active { background:var(--red);width:26px;border-radius:8px;box-shadow:0 0 10px rgba(217,35,45,.5); }
+
+/* =========================================================================
+   FEATURED QUOTE — CINEMATIC BREAK
+   ========================================================================= */
+.featured-quote-section {
+  background:var(--bg); padding:160px 0;
+  position:relative; overflow:hidden;
+  border-top:1px solid rgba(255,255,255,.04);
+  border-bottom:1px solid rgba(255,255,255,.04);
+}
+.fq-bg-text {
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  font-family:var(--font-d);font-size:clamp(200px,25vw,380px);
+  color:rgba(255,255,255,.018); white-space:nowrap;
+  pointer-events:none; line-height:1; letter-spacing:.02em;
+  z-index:0;
+}
+.fq-inner { position:relative;z-index:5;text-align:center;max-width:980px;margin:0 auto; }
+.fq-quote-mark {
+  font-family:Georgia,serif;font-size:240px;line-height:.7;
+  color:rgba(217,35,45,.12); display:block; margin-bottom:-40px;
+}
+.fq-text {
+  font-family:var(--font-s); font-size:clamp(24px,3.5vw,44px);
+  font-weight:300; font-style:italic;
+  color:rgba(255,255,255,.88); line-height:1.45; letter-spacing:-.01em;
+  margin-bottom:48px;
+}
+.fq-text strong { color:#fff;font-weight:700;font-style:normal; }
+.fq-author { display:flex;align-items:center;justify-content:center;gap:20px; }
+.fq-avatar { width:64px;height:64px;border-radius:50%;object-fit:cover;border:3px solid var(--red); }
+.fq-info { text-align:left; }
+.fq-name { font-family:var(--font-d);font-size:28px;color:#fff;letter-spacing:.04em; }
+.fq-role { font-size:13px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--red); }
+.fq-stars { display:flex;gap:4px;margin-top:6px; }
+.fq-stars svg { width:16px;height:16px;fill:var(--red); }
+
+/* =========================================================================
+   TEXT REVIEWS — STAGGERED MOSAIC GRID
+   ========================================================================= */
+.reviews-section {
+  background:var(--bg-light); padding:120px 0;
+  position:relative; overflow:hidden;
+}
+.reviews-section::before {
+  content:''; position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--red),transparent);
+}
+
+.reviews-section .section-header h2 { color:#0a0a0a; }
+.reviews-section .section-header p   { color:#666; }
+.reviews-section .section-eyebrow .ey-text { color:var(--red); }
+
+/* Masonry-like staggered grid */
+.reviews-mosaic {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px; margin-top:80px;
+}
+
+.review-card {
+  background:#fff;
+  border:1px solid rgba(0,0,0,.07);
+  border-radius:10px;
+  padding:36px 32px;
+  position:relative;
+  transition:all .5s var(--ease);
+  box-shadow:0 4px 20px rgba(0,0,0,.05);
+  overflow:hidden;
+  opacity:0; transform:translateY(30px);
+}
+.review-card.is-visible { opacity:1;transform:translateY(0); }
+.review-card:hover {
+  transform:translateY(-8px);
+  box-shadow:0 24px 50px rgba(0,0,0,.12);
+  border-color:rgba(217,35,45,.3);
+}
+
+/* Red top accent line */
+.review-card::before {
+  content:''; position:absolute;top:0;left:0;right:0;height:0;
+  background:var(--red);transition:height .4s var(--ease);
+}
+.review-card:hover::before { height:3px; }
+
+/* Featured / large card */
+.review-card.featured {
+  background:linear-gradient(145deg,#111,#0a0a0a);
+  border-color:rgba(217,35,45,.25);
+  grid-column:span 1;
+  box-shadow:0 10px 40px rgba(0,0,0,.4);
+}
+.review-card.featured .rv-text    { color:rgba(255,255,255,.8); }
+.review-card.featured .rv-name    { color:#fff; }
+.review-card.featured .rv-role    { color:var(--red); }
+.review-card.featured .rv-date    { color:rgba(255,255,255,.25); }
+.review-card.featured .rv-quote   { color:var(--red); }
+.review-card.featured::before { background:#fff; }
+
+.rv-header { display:flex;align-items:center;justify-content:space-between;margin-bottom:24px; }
+.rv-stars { display:flex;gap:4px; }
+.rv-stars svg { width:15px;height:15px;fill:var(--red); }
+.rv-platform-badge {
+  font-size:10px;font-weight:800;letter-spacing:.15em;
+  text-transform:uppercase; padding:4px 10px;
+  border-radius:20px;
+}
+.badge-amazon  { background:rgba(255,153,0,.12);color:#FF9900; border:1px solid rgba(255,153,0,.2); }
+.badge-upwork  { background:rgba(20,133,62,.12);color:#14853e; border:1px solid rgba(20,133,62,.2); }
+.badge-google  { background:rgba(66,133,244,.12);color:#4285F4; border:1px solid rgba(66,133,244,.2); }
+.badge-direct  { background:rgba(217,35,45,.1);color:var(--red);border:1px solid rgba(217,35,45,.2); }
+
+.rv-quote { font-size:52px;font-family:Georgia,serif;line-height:.8;color:rgba(0,0,0,.08);margin-bottom:-8px;display:block; }
+.review-card.featured .rv-quote { color:rgba(217,35,45,.12); }
+
+.rv-text { font-size:15.5px;color:#3a3a3a;line-height:1.75;font-weight:400;margin-bottom:28px; }
+.rv-author { display:flex;align-items:center;gap:14px; }
+.rv-avatar { width:46px;height:46px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid rgba(0,0,0,.06); }
+.review-card.featured .rv-avatar { border-color:rgba(217,35,45,.4); }
+.rv-name { font-weight:700;font-size:15px;color:#111;letter-spacing:.02em;margin-bottom:2px; }
+.rv-role { font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:600;color:#888; }
+.rv-date { font-size:11px;color:#bbb;margin-top:2px; }
+
+/* =========================================================================
+   RATINGS OVERVIEW PANEL
+   ========================================================================= */
+.ratings-overview {
+  background:var(--bg-2); padding:100px 0;
+  position:relative;
+}
+.ratings-grid { display:grid;grid-template-columns:1fr 1fr 1fr;gap:60px;align-items:center; }
+
+/* Left: Big Score */
+.ro-score-side { text-align:center; }
+.ro-big-num { font-family:var(--font-d);font-size:clamp(100px,14vw,180px);line-height:.85;color:#fff;letter-spacing:.02em; }
+.ro-big-num span { color:var(--red); }
+.ro-total { font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:8px; }
+.ro-star-row { display:flex;justify-content:center;gap:6px;margin-top:16px; }
+.ro-star-row svg { width:20px;height:20px;fill:var(--red); }
+
+/* Center: Bar chart */
+.ro-bars { display:flex;flex-direction:column;gap:14px; }
+.ro-bar-row { display:flex;align-items:center;gap:14px; }
+.ro-bar-label { font-size:13px;font-weight:700;color:rgba(255,255,255,.4);width:18px;text-align:right;flex-shrink:0; }
+.ro-bar-track { flex:1;height:6px;background:rgba(255,255,255,.07);border-radius:3px;overflow:hidden; }
+.ro-bar-fill { height:100%;background:var(--red);border-radius:3px;transform:scaleX(0);transform-origin:left;transition:transform 1.2s var(--ease); }
+.ro-bar-fill.animated { transform:scaleX(1); }
+.ro-bar-pct { font-size:12px;font-weight:700;color:rgba(255,255,255,.3);width:36px;flex-shrink:0; }
+
+/* Right: Platform breakdown */
+.ro-platforms { display:flex;flex-direction:column;gap:20px; }
+.ro-platform { display:flex;align-items:center;gap:16px;padding:20px 24px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:8px;transition:all .4s var(--ease); }
+.ro-platform:hover { background:rgba(255,255,255,.06);border-color:rgba(217,35,45,.2);transform:translateX(6px); }
+.ro-platform-icon { width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0; }
+.ro-platform-info h4 { font-size:15px;font-weight:700;color:#fff;margin-bottom:2px; }
+.ro-platform-info span { font-size:12px;color:rgba(255,255,255,.35);font-weight:600; }
+.ro-platform-stars { display:flex;gap:3px;margin-left:auto; }
+.ro-platform-stars svg { width:13px;height:13px;fill:var(--red); }
+
+/* =========================================================================
+   FINAL CTA
+   ========================================================================= */
+.testi-cta {
+  background:linear-gradient(135deg,#a00000,#cc0000 40%,#e60000 70%,#ff2200);
+  padding:120px 0; text-align:center; position:relative; overflow:hidden;
+}
+.testi-cta::before { content:'';position:absolute;top:-100px;left:-100px;width:500px;height:500px;border-radius:50%;background:rgba(255,255,255,.04); }
+.testi-cta::after  { content:'';position:absolute;bottom:-150px;right:-150px;width:600px;height:600px;border-radius:50%;background:rgba(0,0,0,.1); }
+.testi-cta-inner { position:relative;z-index:2; }
+.testi-cta h2 { font-family:var(--font-d);font-size:clamp(52px,7vw,110px);color:#fff;line-height:.9;letter-spacing:.02em;margin-bottom:24px; }
+.testi-cta p  { font-size:19px;color:rgba(255,255,255,.75);max-width:500px;margin:0 auto 44px;line-height:1.75;font-weight:300; }
+.tcta-btn { display:inline-block;background:#fff;color:var(--red);padding:20px 52px;font-family:var(--font-s);font-size:14px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border-radius:4px;transition:all .3s; }
+.tcta-btn:hover { transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.3); }
+.tcta-trust { margin-top:32px;font-size:13px;color:rgba(255,255,255,.45);display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap; }
+.tcta-trust span { display:inline-flex;align-items:center;gap:6px; }
+.tcta-trust svg { width:14px;height:14px;fill:rgba(255,255,255,.45); }
+
+/* ════════════════════════════════════════════════════════
+   9. MILLION DOLLAR FOOTER — STUDIO LUXURY
+════════════════════════════════════════════════════════ */
+.footer {
+    background: #030303; /* A true, void-level obsidian black */
+    padding: 120px 0 0; /* Massive top breathing room */
+    position: relative;
+    overflow: hidden; /* Required to contain the giant text and glow */
+}
+
+/* Subtle Crimson Ambient Light emerging from the top */
+.footer-glow {
+    position: absolute;
+    top: -300px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(217, 35, 45, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.relative-z {
+    position: relative;
+    z-index: 2;
+}
+
+/* ─── GRID LAYOUT ─── */
+.footer-grid-premium {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 80px;
+    margin-bottom: 80px;
+}
+
+.footer-desc {
+    font-family: var(--font-sans);
+    font-size: 15.5px;
+    font-weight: 400;
+    color: #8A8A93; /* Crisp slate gray */
+    line-height: 1.85;
+    max-width: 320px;
+}
+
+.footer-col-title {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 32px;
+    position: relative;
+}
+
+/* ─── KINETIC LINK ENGINE ─── */
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.footer-links a {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 500;
+    color: #A1A1AA;
+    text-decoration: none;
+    display: inline-flex;
+    width: max-content;
+    position: relative;
+    transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-links a span {
+    position: relative;
+    padding-bottom: 4px;
+}
+
+/* The Line Draw Effect */
+.footer-links a span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--red);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+}
+
+.footer-links a:hover span::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* ─── LOCATIONS ─── */
+.footer-locations {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.loc-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.loc-item strong {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.05em;
+}
+
+.loc-item span {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: #8A8A93;
+    margin-top: 2px;
+}
+
+/* ─── THE MEGA-TYPOGRAPHY WATERMARK ─── */
+.footer-giant-text {
+    font-family: var(--font-display);
+    font-size: clamp(80px, 14.5vw, 240px); /* Scales dynamically with the screen */
+    font-weight: 800;
+    line-height: 0.8;
+    letter-spacing: 0.02em;
+    text-align: center;
+    
+    /* The Stealth Stroke Effect */
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.06);
+    
+    user-select: none;
+    pointer-events: none;
+    width: 100%;
+    margin: 40px 0 0 0;
+    
+    /* Pulls it slightly beneath the bottom grid line */
+    transform: translateY(20px);
+}
+
+/* ─── THE FINAL BASELINE ─── */
+.footer-bottom-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    position: relative;
+    z-index: 10;
+    background: #030303; /* Covers the bottom of the giant text */
+}
+
+.fb-copy {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    color: #71717A;
+}
+
+.fb-legal {
+    display: flex;
+    gap: 32px;
+}
+
+.fb-legal a {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    color: #71717A;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.fb-legal a:hover {
+    color: #ffffff;
+}
+
+/* Tactical Social Buttons */
+.fb-socials {
+    display: flex;
+    gap: 12px;
+}
+
+.fb-social-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    color: #A1A1AA;
+}
+
+.fb-social-btn svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fb-social-btn:hover {
+    background: var(--red);
+    border-color: var(--red);
+    color: #ffffff;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(217, 35, 45, 0.2);
+}
+
+.fb-social-btn:hover svg {
+    transform: scale(1.1);
+}
+/* ─── CHA DEVELOPER WATERMARK ─── */
+.fb-copy-wrap {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.fb-watermark {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-sans);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding-left: 16px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.wm-text {
+    color: #555555; /* Stealth mode */
+}
+
+.wm-link {
+    color: #8A8A93;
+    font-weight: 800;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* The Kinetic Signature Line */
+.wm-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 1px;
+    background: var(--red);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.wm-link:hover {
+    color: #ffffff; /* Ignites to pure white on hover */
+}
+
+.wm-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+/* ─── HQ DIRECT CONTACT LINKS ─── */
+.loc-link {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: #8A8A93;
+    margin-top: 4px;
+    text-decoration: none;
+    position: relative;
+    width: max-content;
+    transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.loc-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background: var(--red);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.loc-link:hover {
+    color: #ffffff;
+}
+
+.loc-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* ─── FOOTER RESPONSIVE ─── */
+@media(max-width: 1024px) {
+    .footer-grid-premium {
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+    }
+    .footer-brand-col {
+        grid-column: span 2;
+    }
+    .footer-giant-text {
+        transform: translateY(10px);
+    }
+}
+
+@media(max-width: 768px) {
+    .footer { padding: 80px 0 0; }
+    .footer-grid-premium {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+    .footer-brand-col {
+        grid-column: span 1;
+    }
+    .footer-bottom-bar {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+    }
+}
+@media(max-width: 768px) {
+    /* ... your other mobile footer rules ... */
+    
+    .fb-copy-wrap {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .fb-watermark {
+        padding-left: 0;
+        border-left: none;
+        padding-top: 12px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+}
+/* =========================================================================
+   VIDEO MODAL
+   ========================================================================= */
+.vid-modal-overlay {
+  position:fixed;inset:0;z-index:999999;
+  background:rgba(5,5,5,.92); backdrop-filter:blur(20px);
+  opacity:0;pointer-events:none;
+  display:flex;align-items:center;justify-content:center;
+  transition:opacity .4s;
+}
+.vid-modal-overlay.open { opacity:1;pointer-events:auto; }
+.vid-modal-box {
+  background:#000;border-radius:12px;overflow:hidden;
+  width:min(900px,90vw);
+  box-shadow:0 50px 100px rgba(0,0,0,.9);
+  transform:scale(.95);transition:transform .5s var(--ease);
+  position:relative;
+}
+.vid-modal-overlay.open .vid-modal-box { transform:scale(1); }
+.vid-modal-close {
+  position:absolute;top:16px;right:16px;z-index:10;
+  width:40px;height:40px;border-radius:50%;
+  background:rgba(255,255,255,.1);border:none;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .3s;
+}
+.vid-modal-close:hover { background:var(--red);transform:rotate(90deg); }
+.vid-modal-close svg { width:18px;height:18px; }
+.vid-iframe-wrap { position:relative;padding-top:56.25%; }
+.vid-iframe-wrap iframe { position:absolute;inset:0;width:100%;height:100%;border:none; }
+
+/* Placeholder (no actual video src) */
+.vid-placeholder {
+  width:100%;aspect-ratio:16/9;
+  background:linear-gradient(135deg,#111,#0a0a0a);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
+}
+.vid-placeholder .vp-icon { width:72px;height:72px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center; }
+.vid-placeholder .vp-icon svg { width:28px;height:28px;fill:#fff;margin-left:4px; }
+.vid-placeholder p { color:rgba(255,255,255,.4);font-size:14px;letter-spacing:.05em; }
+
+
+
+/* CONTACT FROM SECTION */
+
+/* ==========================================================================
+   MILLION DOLLAR CONTACT SECTION (RED OVERDRIVE & OBSIDIAN GLASS)
+   ========================================================================== */
+
+.contact-section {
+    background: linear-gradient(135deg,#a00000 0%,#cc0000 40%,#e60000 70%,#ff2200 100%);
+    padding: 140px 0;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.contact-section::before {
+    content: ''; 
+    position: absolute; 
+    top: -150px; 
+    left: -100px; 
+    width: 800px; 
+    height: 800px;
+    border-radius: 50%; 
+    background: rgba(255, 255, 255, 0.04);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.contact-section::after {
+    content: ''; 
+    position: absolute; 
+    bottom: -200px; 
+    right: -150px; 
+    width: 900px; 
+    height: 900px;
+    border-radius: 50%; 
+    background: rgba(0, 0, 0, 0.15);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-copy { 
+    position: relative; 
+}
+
+.contact-h2 {
+    font-family: var(--font-display);
+    font-size: clamp(44px, 4.5vw, 76px);
+    color: #ffffff; 
+    letter-spacing: 0.02em;
+    line-height: 0.88;
+    margin-bottom: 28px;
+}
+
+.contact-h2 em { 
+    font-style: normal; 
+    color: #ffffff; 
+    position: relative;
+    display: inline-block;
+}
+
+.contact-h2 em::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 8px;
+    width: 100%;
+    height: 8px;
+    background: rgba(0, 0, 0, 0.2); 
+    z-index: -1;
+}
+
+.contact-lead {
+    font-family: var(--font-sans);
+    font-size: 18px; 
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85); 
+    line-height: 1.8;
+    margin-bottom: 48px;
+    max-width: 90%;
+}
+
+.contact-trust { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 40px; 
+}
+
+.ct-item { 
+    display: flex; 
+    align-items: center; 
+    gap: 24px; 
+}
+
+.ct-icon {
+    width: 64px; 
+    height: 64px; 
+    border-radius: 50%; 
+    background: #ffffff; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    flex-shrink: 0;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15); 
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.ct-item:hover .ct-icon {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.ct-icon svg { 
+    width: 24px; 
+    height: 24px; 
+    stroke: var(--red); 
+    stroke-width: 1.5; 
+    fill: none; 
+}
+
+.ct-text { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+}
+
+.ct-text strong {
+    font-family: var(--font-sans); 
+    font-size: 15px; 
+    font-weight: 800; 
+    color: #ffffff; 
+    display: block; 
+    margin-bottom: 4px; 
+    letter-spacing: 0.1em; 
+    text-transform: uppercase;
+}
+
+.ct-text span {
+    font-family: var(--font-sans); 
+    font-size: 16px; 
+    font-weight: 500; 
+    color: rgba(255, 255, 255, 0.75); 
+    line-height: 1.5;
+}
+
+.contact-form-card {
+    background: rgba(255, 255, 255, 0.95); 
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    padding: 56px 48px;
+    position: relative;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 40px 100px rgba(150, 0, 0, 0.4), 0 10px 40px rgba(217, 35, 45, 0.15);
+}
+
+.contact-form-card::before {
+    content: ''; 
+    position: absolute; 
+    top: 0; left: 32px; right: 32px; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--red), transparent);
+}
+
+.form-grid { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+}
+.form-row-2 { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px; 
+}
+.form-group { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px; 
+    position: relative; 
+}
+
+.form-label {
+    font-family: var(--font-sans); 
+    font-size: 13.5px; 
+    font-weight: 600; 
+    letter-spacing: 0.08em; 
+    text-transform: uppercase;
+    color: #111111; 
+    margin-bottom: 2px; 
+}
+
+.form-input, .form-textarea, .form-select {
+    background: #f4f4f6; 
+    border: 1px solid #e5e7eb;
+    border-radius: 6px; 
+    padding: 16px 20px;
+    font-family: var(--font-sans); 
+    font-size: 15px; 
+    font-weight: 500; 
+    color: #111111;
+    outline: none; 
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    width: 100%; 
+    -webkit-appearance: none;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.form-input::placeholder, .form-textarea::placeholder {
+    color: #a0a0a0; 
+    font-weight: 400;
+}
+
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+    background: #ffffff;
+    border-color: var(--red); 
+    box-shadow: 0 0 0 4px rgba(217, 35, 45, 0.1);
+}
+
+.form-select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='8' viewBox='0 0 14 8'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%23555555' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; 
+    background-position: right 18px center; 
+    padding-right: 48px;
+    color: #555555; 
+}
+
+.form-select option { 
+    background: #ffffff; 
+    color: #111111; 
+}
+
+.form-textarea { 
+    resize: vertical; 
+    min-height: 120px; 
+    line-height: 1.6; 
+}
+
+.form-title {
+    font-family: var(--font-display);
+    font-size: 44px; 
+    color: #111111;
+    letter-spacing: 0.04em; 
+    line-height: 1; 
+    margin-bottom: 8px;
+}
+
+.form-subtitle {
+    font-family: var(--font-sans); 
+    font-size: 14.5px; 
+    color: #555555; 
+    margin-bottom: 32px;
+    line-height: 1.6;
+}
+
+.form-checkgroup { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 12px; 
+    margin-top: 4px;
+}
+
+.form-check {
+    display: flex; 
+    align-items: center; 
+    gap: 12px;
+    padding: 14px 16px;
+    background: #f4f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px; 
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.form-check:hover { 
+    border-color: var(--red); 
+    background: #ffffff; 
+    box-shadow: 0 4px 12px rgba(217, 35, 45, 0.06);
+}
+
+.form-check input[type="checkbox"] { 
+    width: 18px; 
+    height: 18px; 
+    accent-color: var(--red); 
+    cursor: pointer; 
+}
+
+.form-check-label {
+    font-family: var(--font-sans); 
+    font-size: 13.5px; 
+    font-weight: 600;
+    color: #111111; 
+    cursor: pointer; 
+    transition: color 0.3s ease;
+}
+
+.form-check:hover .form-check-label { 
+    color: var(--red); 
+}
+
+.form-submit {
+  display: flex; align-items: center; justify-content: center; gap: 14px;
+  width: 100%; padding: 22px 40px; margin-top: 28px;
+  background: var(--red); color: #fff;
+  font-family: var(--font-sans); font-size: 14px; font-weight: 800;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  border: none; border-radius: 8px; cursor: pointer;
+  position: relative; overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 16px 40px rgba(217,35,45,0.3);
+}
+.form-submit::before {
+  content: ''; position: absolute; inset: 0;
+  background: var(--red-dark); transform: translateX(-101%);
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.form-submit:hover::before { transform: translateX(0); }
+.form-submit:hover { transform: translateY(-3px); box-shadow: 0 24px 50px rgba(217,35,45,0.4); }
+.form-submit span, .form-submit svg { position: relative; z-index: 1; }
+.form-submit svg { width: 18px; height: 18px; stroke: #fff; fill: none; stroke-width: 2.5; transition: transform 0.4s ease; }
+.form-submit:hover svg { transform: translateX(6px); }
+
+.form-fine {
+    font-family: var(--font-sans); 
+    font-size: 12.5px;
+    color: #888888;
+    text-align: center; 
+    margin-top: 20px; 
+    line-height: 1.6;
+}
+
+.form-success { 
+    display: none; 
+    text-align: center; 
+    padding: 48px 0; 
+}
+
+.form-success.show { 
+    display: block; 
+    animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
+}
+
+.form-success-icon {
+    width: 72px; 
+    height: 72px; 
+    border-radius: 50%;
+    background: rgba(217, 35, 45, 0.1); 
+    border: 1px solid rgba(217, 35, 45, 0.3);
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    margin: 0 auto 28px;
+}
+
+.form-success-icon svg { 
+    width: 32px; 
+    height: 32px; 
+    fill: var(--red); 
+}
+
+.form-success h3 {
+    font-family: var(--font-display); 
+    font-size: 44px; 
+    color: #111111;
+    letter-spacing: 0.04em; 
+    margin-bottom: 16px; 
+    line-height: 1;
+}
+
+.form-success p { 
+    font-family: var(--font-sans); 
+    font-size: 18px; 
+    color: #555555; 
+    line-height: 1.75; 
+}
+
+/* ══════════════════════════════════════════════════════
+   CONTACT & FORM: HIGH-DENSITY RESPONSIVE MATRIX
+   Desktop Base CSS remains 100% untouched.
+══════════════════════════════════════════════════════ */
+
+/* ─── 1024px: Tablets (Macro Layout Collapse) ─── */
+@media (max-width: 1024px) {
+    .contact-section { padding: 100px 0; }
+    
+    .contact-inner { grid-template-columns: 1fr; gap: 64px; }
+    
+    .contact-copy { 
+        text-align: center; 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+    }
+    .contact-lead { max-width: 600px; margin: 0 auto 40px; }
+    
+    .contact-trust { 
+        flex-direction: row; 
+        flex-wrap: wrap; 
+        justify-content: center; 
+        gap: 32px; 
+    }
+    .ct-item { 
+        flex-direction: column; 
+        text-align: center; 
+        gap: 16px; 
+    }
+}
+
+/* ─── 768px: Mobile Landscape & Form Row Collapse ─── */
+@media (max-width: 768px) {
+    .contact-section { padding: 80px 0; }
+    .contact-h2 { font-size: 48px !important; margin-bottom: 24px; line-height: 1.1; }
+    
+    .form-title { font-size: 36px; text-align: center; }
+    .form-subtitle { text-align: center; }
+    
+    .contact-form-card { padding: 40px 32px; }
+    
+    .form-row-2 { grid-template-columns: 1fr; gap: 16px; }
+    .form-grid { gap: 16px; }
+}
+
+/* ─── 480px: Small Phones (The Million-Dollar Density Engine) ─── */
+@media (max-width: 480px) {
+    .contact-section { padding: 60px 0; }
+    .contact-h2 { font-size: 40px !important; }
+    
+    .contact-form-card { 
+        padding: 32px 20px; 
+        border-radius: 8px; 
+    }
+    .form-title { font-size: 28px; margin-bottom: 6px; }
+    .form-subtitle { font-size: 13px; margin-bottom: 24px; }
+    
+    .form-input, .form-textarea, .form-select {
+        padding: 14px 16px;
+        font-size: 14px;
+    }
+    .form-textarea { min-height: 100px; }
+    
+    .form-checkgroup {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .form-check {
+        width: calc(50% - 4px); 
+        padding: 12px 10px;
+        gap: 8px;
+    }
+    .form-check-label { font-size: 11.5px; }
+    .form-check input[type="checkbox"] { width: 16px; height: 16px; }
+    
+    .form-submit {
+        padding: 18px 24px;
+        font-size: 13px;
+        margin-top: 16px;
+    }
+}
+
+/* ══════════════════════════════════════════════════════
+   MOBILE FIX: PREMIUM FOOTER CENTER ALIGNMENT
+══════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+    /* 1. Center the Brand Identity */
+    .footer-brand-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-brand-col .brand-logo {
+        justify-content: center;
+    }
+    .footer-desc {
+        margin: 0 auto; /* Optically centers the restricted max-width paragraph */
+    }
+
+    /* 2. Center the Navigation Columns */
+    .footer-nav-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-links {
+        align-items: center;
+    }
+
+    /* 3. Center the Corporate HQ Locations */
+    .footer-locations {
+        align-items: center;
+    }
+    .loc-item {
+        align-items: center;
+        text-align: center;
+    }
+
+    /* 4. Center the Bottom Baseline Elements */
+    .fb-legal {
+        justify-content: center;
+        flex-wrap: wrap; /* Ensures legal links don't break on tiny screens */
+    }
+    .fb-socials {
+        justify-content: center;
+    }
+
+    /* 5. THE MILLION DOLLAR POLISH: Center-Origin Hover Sweeps */
+    /* Forces the red line to expand outward from the middle to match the centered layout */
+    .footer-links a span::after,
+    .loc-link::after,
+    .wm-link::after {
+        transform-origin: center !important; 
+    }
+    .footer-links a:hover span::after,
+    .loc-link:hover::after,
+    .wm-link:hover::after {
+        transform-origin: center !important;
+    }
+}
+/* ══════════════════════════════════════════════════════
+   MOBILE FIX: CONTACT ITEMS SINGLE COLUMN STACK
+══════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+    /* 1. Force the container into a strict vertical column */
+    .contact-trust { 
+        flex-direction: column !important; 
+        align-items: center !important; 
+        gap: 48px !important; /* Premium breathing room between items */
+        width: 100%;
+    }
+    
+    /* 2. Center each individual item perfectly */
+    .ct-item { 
+        flex-direction: column !important; /* Keeps the icon stacked above the text */
+        text-align: center !important; 
+        width: 100%;
+        max-width: 320px; /* Optically traps the text so it doesn't span too wide */
+        gap: 16px !important; 
+    }
+    
+    /* 3. Micro-scale the icons for mobile elegance */
+    .ct-icon {
+        width: 56px !important;
+        height: 56px !important;
+    }
+    
+    .ct-icon svg {
+        width: 20px !important;
+        height: 20px !important;
+    }
+}
+
+
+
+/* =========================================================================
+   KEYFRAMES
+   ========================================================================= */
+@keyframes fadeUp { 0%{opacity:0;transform:translateY(40px)} 100%{opacity:1;transform:translateY(0)} }
+@keyframes fadeLeft { 0%{opacity:0;transform:translateX(60px)} 100%{opacity:1;transform:translateX(0)} }
+@keyframes floatY { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(-12px)} }
+@keyframes scrollDrop { 0%{opacity:1;transform:translateY(0)} 100%{opacity:0;transform:translateY(20px)} }
+@keyframes pulsePlay { 0%,100%{box-shadow:0 0 0 0 rgba(217,35,45,.4)} 50%{box-shadow:0 0 0 12px rgba(217,35,45,0)} }
+
+/* =========================================================================
+   RESPONSIVE
+   ========================================================================= */
+@media(max-width:1100px) {
+  .hero-inner { grid-template-columns:1fr;text-align:center; }
+  .hero-desc { margin:0 auto 48px; }
+  .hero-stats-row { justify-content:center; }
+  .hero-right { display:none; }
+  .hero-v-label { display:none; }
+  .ratings-grid { grid-template-columns:1fr 1fr; }
+  .ro-score-side { grid-column:span 2;border-bottom:1px solid rgba(255,255,255,.05);padding-bottom:40px; }
+}
+@media(max-width:900px) {
+  .reviews-mosaic { grid-template-columns:1fr 1fr; }
+  .footer-grid { grid-template-columns:1fr 1fr;gap:40px; }
+  .nav-links { display:none; }
+}
+@media(max-width:640px) {
+  .reviews-mosaic { grid-template-columns:1fr; }
+  .ratings-grid { grid-template-columns:1fr; }
+  .ro-score-side { grid-column:span 1; }
+  .footer-grid { grid-template-columns:1fr; }
+  .hero-stats-row { gap:28px; }
+  .hstat-num { font-size:44px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── CURSOR ── -->
+<div id="cur-dot"></div>
+<div id="cur-ring"></div>
+
+<!-- ── SOCIAL SIDEBAR ── -->
+<div class="social-sidebar open" id="socialSidebar">
+  <button class="toggle-btn" id="toggleBtn" aria-label="Toggle sidebar">
+    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </button>
+  <div class="social-links" id="socialLinks">
+    <a href="https://wa.me/923420147244" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp-btn" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+    </a>
+    <!-- <a href="mailto:help@telsolutionspk.com" class="social-btn email-btn" aria-label="Email">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+        <polyline points="22,4 12,13 2,4"></polyline>
+      </svg>
+    </a> -->
+    <a href="https://linkedin.com/company/yourcompany" target="_blank" rel="noopener noreferrer" class="social-btn linkedin-btn" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+      </svg>
+    </a>
+    <a href="https://youtube.com/@yourchannel" target="_blank" rel="noopener noreferrer" class="social-btn youtube-btn" aria-label="YouTube">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.015 3.015 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.501 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.377.55 9.377.55s7.505 0 9.377-.55a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+      </svg>
+    </a>
+  </div>
+</div>
+
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation">
+  <div class="mobile-nav-links">
+    <a href="services.html" data-close-nav>Services</a>
+    <a href="index.html#brands" data-close-nav>Brands</a>
+    <a href="about.html" data-close-nav>About</a>
+    <a href="index.html#case-studies" data-close-nav>Case Studies</a>
+    <a href="blogs.html" data-close-nav>Blog</a>
+    <a href="index.html#team" data-close-nav>Team</a>
+  </div>
+  <div class="mobile-nav-cta">
+    <a href="#" class="btn-audit" id="mobileCalendlyBtn">BOOK FREE CONSULTATION</a>
+  </div>
+</nav>
+
+<header class="main-header" id="mainHeader">
+    <nav class="container nav-wrapper">
+        <a href="index.html" class="brand-logo">
+            <div class="brand-icon-wrap">
+                <svg class="brand-icon-svg" viewBox="0 0 180 180" preserveAspectRatio="xMidYMid meet">
+                    <defs>
+                        <linearGradient id="header-lacquer" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ff4d5a" />
+                            <stop offset="40%" stop-color="#d9232d" />
+                            <stop offset="100%" stop-color="#991118" />
+                        </linearGradient>
+                        <filter id="header-glow" x="-30%" y="-30%" width="160%" height="160%">
+                            <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#d9232d" flood-opacity="0.45" />
+                        </filter>
+                    </defs>
+                    <g class="header-mark-group">
+                        <circle cx="90" cy="90" r="65" fill="url(#header-lacquer)" filter="url(#header-glow)" />
+                        <g class="header-ed-text">
+                            <text x="68" y="110" font-family="'Montserrat', 'Futura', 'Century Gothic', sans-serif" font-weight="200" font-size="66" fill="#ffffff" text-anchor="middle" transform="rotate(-24 68 90)">e</text>
+                            <text x="112" y="112" font-family="'Montserrat', 'Futura', 'Century Gothic', sans-serif" font-weight="200" font-size="74" fill="#ffffff" text-anchor="middle">d</text>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+            <div class="brand-text">ECOMM<span class="gradient-text">DOTS</span></div>
+        </a>
+        <ul class="nav-links">
+            <li class="nav-has-dropdown">
+                <a href="services.html" class="nav-drop-trigger">
+                    Services 
+                    <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" fill="none"><path d="M6 9l6 6 6-6"/></svg>
+                </a>
+                <div class="nav-dropdown">
+                    <div class="nav-dropdown-inner mega-menu">
+                        <a href="services.html#account-management" class="nav-drop-item">
+                            <span class="nd-title">Full Account Management</span>
+                            <span class="nd-sub">End-to-end operational dominance</span>
+                        </a>
+                        <a href="services.html#ppc-advertising" class="nav-drop-item">
+                            <span class="nd-title">PPC & Advertising</span>
+                            <span class="nd-sub">Profit-driven ad architectures</span>
+                        </a>
+                        <a href="services.html#product-research" class="nav-drop-item">
+                            <span class="nd-title">Product Intelligence</span>
+                            <span class="nd-sub">Data-backed market forecasting</span>
+                        </a>
+                        <a href="services.html#brand-protection" class="nav-drop-item">
+                            <span class="nd-title">Brand Protection</span>
+                            <span class="nd-sub">Ironclad IP defense & registry</span>
+                        </a>
+                        <a href="services.html#sourcing-management" class="nav-drop-item">
+                            <span class="nd-title">Global Sourcing</span>
+                            <span class="nd-sub">Strategic procurement & logistics</span>
+                        </a>
+                        <a href="services.html#product-images-videos" class="nav-drop-item">
+                            <span class="nd-title">Creative Studio</span>
+                            <span class="nd-sub">High-converting visual assets</span>
+                        </a>
+                        <a href="services.html#aplus-content" class="nav-drop-item">
+                            <span class="nd-title">A+ Content Design</span>
+                            <span class="nd-sub">Immersive brand storytelling</span>
+                        </a>
+                        <a href="services.html" class="nav-drop-item">
+                            <span class="nd-title">All Services</span>
+                            <span class="nd-sub">Bespoke 8-figure architectures</span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li><a href="index.html#brands">Brands</a></li>
+            <li class="nav-has-dropdown">
+                <a href="about.html" class="nav-drop-trigger">
+                    About 
+                    <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" fill="none"><path d="M6 9l6 6 6-6"/></svg>
+                </a>
+                <div class="nav-dropdown">
+                    <div class="nav-dropdown-inner">
+                        <a href="about.html#about" class="nav-drop-item">
+                            <span class="nd-title">Our Story</span>
+                            <span class="nd-sub">About ECOMMDOTS</span>
+                        </a>
+                        <a href="about.html#mission" class="nav-drop-item">
+                            <span class="nd-title">Core Philosophy</span>
+                            <span class="nd-sub">Our mission & manifesto</span>
+                        </a>
+                        <a href="about.html#legacy" class="nav-drop-item">
+                            <span class="nd-title">Agency Genesis</span>
+                            <span class="nd-sub">The legacy we're building</span>
+                        </a>
+                        <a href="index.html#team" class="nav-drop-item">
+                            <span class="nd-title">The Architects</span>
+                            <span class="nd-sub">Leadership & strategy team</span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li><a href="index.html#case-studies">Case Studies</a></li>
+        </ul>
+        <div class="nav-controls">
+            <a href="#" class="btn-audit" id="desktopCalendlyBtn">BOOK FREE CONSULTATION</a>
+            <button class="hamburger" id="hamburger" aria-label="Open Menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+</header>
+
+<!-- ═══════════════ HERO — HALL OF PROOF ═══════════════ -->
+<section class="testi-hero">
+  <div class="hero-bloom bloom-1"></div>
+  <div class="hero-bloom bloom-2"></div>
+  <div class="hero-v-label">HALL OF PROOF — 2019 TO PRESENT</div>
+
+  <div class="container hero-inner">
+
+    <!-- Left: Statement -->
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <span class="ey-line"></span>
+        <span class="ey-text">Verified Client Feedback</span>
+      </div>
+      <h1 class="hero-h1">VOICES<br>THAT <span class="red">PROVE</span><br>RESULTS.</h1>
+      <p class="hero-desc">Not persuasion. Not sales copy. Just unfiltered words from the founders and operators who trusted us with their brands — and watched them transform.</p>
+      <div class="hero-stats-row">
+        <div class="hstat">
+          <div class="hstat-num"><span class="counter" data-target="87">0</span><span>+</span></div>
+          <div class="hstat-label">Brands Scaled</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">5<span>/5</span></div>
+          <div class="hstat-label">Avg Rating</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">96<span>%</span></div>
+          <div class="hstat-label">Renewal Rate</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Portrait mosaic -->
+    <div class="hero-right">
+      <div class="portrait-card pc-1">
+        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&auto=format&fit=crop&q=80" alt="Client">
+      </div>
+      <div class="portrait-card pc-2">
+        <img src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?w=500&auto=format&fit=crop&q=80" alt="Client">
+      </div>
+      <div class="portrait-card pc-3">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80" alt="Client">
+      </div>
+      <div class="portrait-card pc-4">
+        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&auto=format&fit=crop&q=80" alt="Client">
+      </div>
+      <div class="portrait-card pc-5">
+        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&auto=format&fit=crop&q=80" alt="Client">
+      </div>
+
+      <!-- Floating testimonial badge -->
+      <div class="hero-quote-badge">
+        <div class="hqb-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="hqb-quote">"Saif Is Fantastic! Very high level of expertise in ecommerce. Highly recommended!"</div>
+        <div class="hqb-author">
+          <img class="hqb-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80" alt="Adrian J.">
+          <div>
+            <div class="hqb-name">ADRIAN J.</div>
+            <div class="hqb-role">Co-Founder, UNO Brands</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ── PROOF STRIP ── -->
+<div class="proof-strip">
+  <div class="strip-track" id="stripTrack"></div>
+</div>
+
+<!-- ═══════════════ VIDEO TESTIMONIALS ═══════════════ -->
+<section class="video-section" id="video-testimonials">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow" style="justify-content:center;margin-bottom:12px;">
+        <span class="ey-line"></span>
+        <span class="ey-text">Watch & Believe</span>
+      </div>
+      <h2>VIDEO <span style="color:var(--red)">TESTIMONIALS</span></h2>
+      <p>Hear directly from the founders who built empires with Ecommdots by their side.</p>
+    </div>
+
+    <div class="video-carousel-wrap reveal">
+      <div class="video-track" id="videoTrack">
+
+        <!-- VID 1 -->
+        <div class="video-card" data-client="Adrian J.">
+          <div class="vc-thumb">
+            <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=600&auto=format&fit=crop&q=80" alt="Adrian J. Video">
+            <div class="vc-stars">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="vc-play">
+              <div class="vc-play-btn"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+            </div>
+            <div class="vc-duration">2:34</div>
+          </div>
+          <div class="vc-body">
+            <div class="vc-meta">FULL ACCOUNT MANAGEMENT · AMAZON US</div>
+            <div class="vc-quote">"Went above and beyond what was necessary. Very high level of expertise in ecommerce."</div>
+            <div class="vc-author">
+              <img class="vc-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80" alt="Adrian J.">
+              <div>
+                <div class="vc-name">Adrian J.</div>
+                <div class="vc-role">Co-Founder · UNO Brands</div>
+                <div class="vc-platform">Verified Upwork Review</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- VID 2 -->
+        <div class="video-card" data-client="Serdar A.">
+          <div class="vc-thumb">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&auto=format&fit=crop&q=80" alt="Serdar A. Video">
+            <div class="vc-stars">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="vc-play">
+              <div class="vc-play-btn"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+            </div>
+            <div class="vc-duration">3:12</div>
+          </div>
+          <div class="vc-body">
+            <div class="vc-meta">BRAND MANAGEMENT · AMAZON EU</div>
+            <div class="vc-quote">"Very reliable and understands new tasks in a short time. I would hire him again anytime."</div>
+            <div class="vc-author">
+              <img class="vc-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Serdar A.">
+              <div>
+                <div class="vc-name">Serdar A.</div>
+                <div class="vc-role">Founder · Serasar</div>
+                <div class="vc-platform">Verified Upwork Review</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- VID 3 -->
+        <div class="video-card" data-client="Brooks M.">
+          <div class="vc-thumb">
+            <img src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?w=600&auto=format&fit=crop&q=80" alt="Brooks M. Video">
+            <div class="vc-stars">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="vc-play">
+              <div class="vc-play-btn"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+            </div>
+            <div class="vc-duration">1:58</div>
+          </div>
+          <div class="vc-body">
+            <div class="vc-meta">AMAZON PPC & LISTING REPAIR</div>
+            <div class="vc-quote">"Did exactly what was needed to upload and repair multiple Amazon listings seamlessly."</div>
+            <div class="vc-author">
+              <img class="vc-avatar" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&auto=format&fit=crop&q=80" alt="Brooks M.">
+              <div>
+                <div class="vc-name">Brooks M.</div>
+                <div class="vc-role">Founder · Earth Fed Muscle</div>
+                <div class="vc-platform">Verified Upwork Review</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- VID 4 -->
+        <div class="video-card" data-client="Joseph W.">
+          <div class="vc-thumb">
+            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&auto=format&fit=crop&q=80" alt="Joseph W. Video">
+            <div class="vc-stars">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="vc-play">
+              <div class="vc-play-btn"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+            </div>
+            <div class="vc-duration">4:05</div>
+          </div>
+          <div class="vc-body">
+            <div class="vc-meta">LARGE CATALOG MANAGEMENT</div>
+            <div class="vc-quote">"Great work. Fast learner and helped us manage a large portfolio of products. Highly recommend!"</div>
+            <div class="vc-author">
+              <img class="vc-avatar" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&auto=format&fit=crop&q=80" alt="Joseph W.">
+              <div>
+                <div class="vc-name">Joseph W.</div>
+                <div class="vc-role">Founder · Willis Worxs</div>
+                <div class="vc-platform">Verified Upwork Review</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- VID 5 -->
+        <div class="video-card" data-client="Emily B.">
+          <div class="vc-thumb">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&auto=format&fit=crop&q=80" alt="Emily B. Video">
+            <div class="vc-stars">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="vc-play">
+              <div class="vc-play-btn"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+            </div>
+            <div class="vc-duration">2:22</div>
+          </div>
+          <div class="vc-body">
+            <div class="vc-meta">AMAZON KDP & LISTING OPTIMIZATION</div>
+            <div class="vc-quote">"I've worked with Saif on several projects — always happy with the quality and timeliness."</div>
+            <div class="vc-author">
+              <img class="vc-avatar" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&auto=format&fit=crop&q=80" alt="Emily B.">
+              <div>
+                <div class="vc-name">Emily B.</div>
+                <div class="vc-role">Author · Amazon KDP Seller</div>
+                <div class="vc-platform">Verified Upwork Review</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /video-track -->
+    </div><!-- /carousel-wrap -->
+
+    <!-- Controls -->
+    <div class="carousel-controls reveal">
+      <button class="cc-btn" id="vcPrev" aria-label="Previous">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="cc-dots" id="vcDots"></div>
+      <button class="cc-btn" id="vcNext" aria-label="Next">
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ FEATURED QUOTE BREAK ═══════════════ -->
+<section class="featured-quote-section">
+  <div class="fq-bg-text">PROOF</div>
+  <div class="container fq-inner reveal scale">
+    <span class="fq-quote-mark">"</span>
+    <p class="fq-text">
+      Working with Ecommdots was a <strong>turning point for our brand.</strong>
+      In six months they transformed our entire Amazon architecture — our ROAS went from
+      1.8× to over 6× and we finally cracked <strong>seven figures on the platform.</strong>
+      This isn't an agency; they're co-founders who genuinely care about your numbers.
+    </p>
+    <div class="fq-author">
+      <img class="fq-avatar" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&auto=format&fit=crop&q=80" alt="Marcus T.">
+      <div class="fq-info">
+        <div class="fq-name">MARCUS T.</div>
+        <div class="fq-role">Founder · Departure Outdoor — $2.4M Amazon Revenue</div>
+        <div class="fq-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ TEXT REVIEWS MOSAIC ═══════════════ -->
+<section class="reviews-section" id="reviews">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow" style="justify-content:center;margin-bottom:12px;">
+        <span class="ey-line"></span>
+        <span class="ey-text">Written Proof</span>
+      </div>
+      <h2>WHAT TYCOONS <span style="color:var(--red)">SAY.</span></h2>
+      <p style="color:#666;">Unfiltered, verified reviews from our global client base across every major platform.</p>
+    </div>
+
+    <div class="reviews-mosaic">
+
+      <!-- Card 1 — Featured Dark -->
+      <div class="review-card featured reveal del-1">
+        <div class="rv-header">
+          <div class="rv-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <span class="rv-platform-badge badge-direct">Direct</span>
+        </div>
+        <span class="rv-quote">"</span>
+        <div class="rv-text">Saif Is Fantastic! He went above and beyond what was necessary. Very high level of expertise in ecommerce. Highly recommended!!!</div>
+        <div class="rv-author">
+          <img class="rv-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80" alt="Adrian J.">
+          <div>
+            <div class="rv-name">Adrian J.</div>
+            <div class="rv-role">Co-Founder · UNO Brands</div>
+            <div class="rv-date">Verified · Upwork</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="review-card reveal del-2">
+        <div class="rv-header">
+          <div class="rv-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <span class="rv-platform-badge badge-upwork">Upwork</span>
+        </div>
+        <span class="rv-quote">"</span>
+        <div class="rv-text">Very hardworking freelancer, very good English skills. Very reliable and understands new tasks in a short time. I would hire him again anytime.</div>
+        <div class="rv-author">
+          <img class="rv-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Serdar A.">
+          <div>
+            <div class="rv-name">Serdar A.</div>
+            <div class="rv-role">Founder · Serasar</div>
+            <div class="rv-date">Verified · Upwork</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="review-card reveal del-3">
+        <div class="rv-header">
+          <div class="rv-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <span class="rv-platform-badge badge-amazon">Amazon</span>
+        </div>
+        <span class="rv-quote">"</span>
+        <div class="rv-text">Did exactly what was needed to upload and repair multiple Amazon listings. Clean, efficient, and delivered exactly on time without back-and-forth.</div>
+        <div class="rv-author">
+          <img class="rv-avatar" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&auto=format&fit=crop&q=80" alt="Brooks M.">
+          <div>
+            <div class="rv-name">Brooks M.</div>
+            <div class="rv-role">Founder · Earth Fed Muscle</div>
+            <div class="rv-date">Verified · Amazon Seller Community</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="review-card reveal del-1">
+        <div class="rv-header">
+          <div class="rv-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <span class="rv-platform-badge badge-upwork">Upwork</span>
+        </div>
+        <span class="rv-quote">"</span>
+        <div class="rv-text">I've worked with Saif on several projects; I am always happy with the quality of work and his timeliness. I will work with him in the future.</div>
+        <div class="rv-author">
+          <img class="rv-avatar" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&auto=format&fit=crop&q=80" alt="Emily B.">
+          <div>
+            <div class="rv-name">Emily B.</div>
+            <div class="rv-role">Author · Amazon KDP Seller</div>
+            <div class="rv-date">Verified · Upwork</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 — Featured Dark -->
+      <div class="review-card featured reveal del-2">
+        <div class="rv-header">
+          <div class="rv-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <span class="rv-platform-badge badge-direct">Direct</span>
+        </div>
+        <span class="rv-quote">"</span>
+        <div class="rv-text">Great work. Was a fast learner and helped us manage a large portfolio of products. Great communication and work ethic. Highly recommend!</div>
+        <div class="rv-author">
+          <img class="rv-avatar" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&auto=format&fit=crop&q=80" alt="Joseph W.">
+          <div>
+            <div class="rv-name">Joseph W.</div>
+            <div class="rv-role">Founder · Willis Worxs</div>
+            <div class="rv-date">Verified · Upwork</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="review-card reveal del-3">
+        <div class="rv-header">
+          <div class="rv-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <span class="rv-platform-badge badge-upwork">Upwork</span>
+        </div>
+        <span class="rv-quote">"</span>
+        <div class="rv-text">Saif is professional and highly experienced with Amazon. Would definitely recommend for anyone looking to scale their e-commerce operations.</div>
+        <div class="rv-author">
+          <img class="rv-avatar" src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?w=100&auto=format&fit=crop&q=80" alt="Leesa M.">
+          <div>
+            <div class="rv-name">Leesa M.</div>
+            <div class="rv-role">Author · Amazon KDP Seller</div>
+            <div class="rv-date">Verified · Upwork</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /reviews-mosaic -->
+  </div>
+</section>
+
+<!-- ═══════════════ RATINGS OVERVIEW ═══════════════ -->
+<section class="ratings-overview" id="ratings">
+  <div class="container">
+    <div class="section-header reveal" style="margin-bottom:80px;">
+      <div class="section-eyebrow" style="justify-content:center;margin-bottom:12px;">
+        <span class="ey-line"></span>
+        <span class="ey-text">The Numbers</span>
+      </div>
+      <h2 style="font-family:var(--font-d);font-size:clamp(52px,7vw,100px);line-height:.9;letter-spacing:.02em;margin-top:12px;">RATINGS <span style="color:var(--red)">OVERVIEW</span></h2>
+    </div>
+    <div class="ratings-grid">
+
+      <!-- Score -->
+      <div class="ro-score-side reveal scale">
+        <div class="ro-big-num">5<span>.0</span></div>
+        <div class="ro-star-row">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="ro-total">Average across 87+ verified reviews</div>
+      </div>
+
+      <!-- Bar chart -->
+      <div class="ro-bars reveal">
+        <div class="ro-bar-row">
+          <span class="ro-bar-label">5</span>
+          <div class="ro-bar-track"><div class="ro-bar-fill" style="--w:.92" data-width=".92"></div></div>
+          <span class="ro-bar-pct">92%</span>
+        </div>
+        <div class="ro-bar-row">
+          <span class="ro-bar-label">4</span>
+          <div class="ro-bar-track"><div class="ro-bar-fill" style="--w:.06" data-width=".06"></div></div>
+          <span class="ro-bar-pct">6%</span>
+        </div>
+        <div class="ro-bar-row">
+          <span class="ro-bar-label">3</span>
+          <div class="ro-bar-track"><div class="ro-bar-fill" style="--w:.02" data-width=".02"></div></div>
+          <span class="ro-bar-pct">2%</span>
+        </div>
+        <div class="ro-bar-row">
+          <span class="ro-bar-label">2</span>
+          <div class="ro-bar-track"><div class="ro-bar-fill" style="--w:.00" data-width="0"></div></div>
+          <span class="ro-bar-pct">0%</span>
+        </div>
+        <div class="ro-bar-row">
+          <span class="ro-bar-label">1</span>
+          <div class="ro-bar-track"><div class="ro-bar-fill" style="--w:.00" data-width="0"></div></div>
+          <span class="ro-bar-pct">0%</span>
+        </div>
+      </div>
+
+      <!-- Platform breakdown -->
+      <div class="ro-platforms reveal from-right">
+        <div class="ro-platform">
+          <div class="ro-platform-icon" style="background:rgba(255,153,0,.1);">
+            <svg width="24" height="24" viewBox="0 0 448 512" fill="#FF9900"><path d="M257.2 162.7c-48.7 1.8-169.5 15.5-169.5 117.5 0 109.5 138.3 114 183.5 43.2 6.5 10.2 35.4 37.5 45.3 46.8l56.8-56S341 288.9 341 261.4V114.3C341 89 316.5 32 228.7 32 140.7 32 94 87 94 136.3l73.5 6.8c16.3-49.5 54.2-49.5 54.2-49.5 40.7-.1 35.5 29.8 35.5 69.1z"/></svg>
+          </div>
+          <div class="ro-platform-info"><h4>Amazon</h4><span>47 verified reviews</span></div>
+          <div class="ro-platform-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+        </div>
+        <div class="ro-platform">
+          <div class="ro-platform-icon" style="background:rgba(20,133,62,.1);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#14853e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+          </div>
+          <div class="ro-platform-info"><h4>Upwork</h4><span>31 verified reviews</span></div>
+          <div class="ro-platform-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+        </div>
+        <div class="ro-platform">
+          <div class="ro-platform-icon" style="background:rgba(66,133,244,.1);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="ro-platform-info"><h4>Direct Clients</h4><span>9 verified reviews</span></div>
+          <div class="ro-platform-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════ CONTACT SECTION ═══════════════════ -->
+<section class="contact-section" id="contact">
+    <div class="container">
+        <div class="contact-inner">
+
+            <div class="contact-copy">
+                <div class="section-eyebrow" style="margin-bottom:24px;">
+                    <span class="ey-line" style="background: rgba(255, 255, 255, 0.5);"></span>
+                    <span class="ey-text" style="color: #ffffff;">Get In Touch</span>
+                </div>
+                <h2 class="contact-h2">LET'S BUILD<br>SOMETHING<br><em>UNFORGETTABLE</em></h2>
+                <p class="contact-lead">Tell us where your brand is today. We'll show you exactly where it can be — and map the fastest path to get there. No fluff, no pitch decks. Just clarity.</p>
+
+                <div class="contact-trust">
+                    <div class="ct-item">
+                        <div class="ct-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <div class="ct-text">
+                            <strong>Offices</strong>
+                            <span>London, UK · New York, US · Dubai, UAE<br>Lahore, Pakistan</span>
+                        </div>
+                    </div>
+
+                    <div class="ct-item">
+                        <div class="ct-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                        </div>
+                        <div class="ct-text">
+                            <strong>Phone Number</strong>
+                            <span><a href="tel:+923420147244" style="color: inherit; text-decoration: none;">+92 342 014 7244</a></span>
+                        </div>
+                    </div>
+
+                    <div class="ct-item">
+                        <div class="ct-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                        <div class="ct-text">
+                            <strong>Mail Address</strong>
+                            <span><a href="mailto:help@telsolutionspk.com" style="color: inherit; text-decoration: none;">help@telsolutionspk.com</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-card">
+                <div id="contactForm">
+                    <div class="form-title">FREE AUDIT</div>
+                    <div class="form-subtitle">Fill in the details below and a senior strategist will review your account personally.</div>
+
+                    <div class="form-grid">
+                        
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label class="form-label" for="cf-name">Full Name</label>
+                                <input type="text" id="cf-name" class="form-input" placeholder="Your name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="cf-email">Business Email</label>
+                                <input type="email" id="cf-email" class="form-input" placeholder="you@company.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label class="form-label" for="cf-brand">Brand / Company</label>
+                                <input type="text" id="cf-brand" class="form-input" placeholder="Your Amazon brand">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="cf-phone">Phone Number</label>
+                                <input type="tel" id="cf-phone" class="form-input" placeholder="+1 (555) 000-0000">
+                            </div>
+                        </div>
+
+                        <div class="form-group full">
+                            <label class="form-label" for="cf-revenue">Monthly Amazon Revenue</label>
+                            <select id="cf-revenue" class="form-select">
+                                <option value="" disabled selected>Select your revenue range</option>
+                                <option>Under $10,000 / month</option>
+                                <option>$10,000 – $50,000 / month</option>
+                                <option>$50,000 – $100,000 / month</option>
+                                <option>$100,000 – $500,000 / month</option>
+                                <option>$500,000+ / month</option>
+                                <option>Pre-launch (Not yet selling)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group full">
+                            <label class="form-label" style="margin-bottom: 6px;">Services You're Interested In</label>
+                            <div class="form-checkgroup">
+                                <label class="form-check">
+                                    <input type="checkbox" value="ppc">
+                                    <span class="form-check-label">PPC Management</span>
+                                </label>
+                                <label class="form-check">
+                                    <input type="checkbox" value="listing">
+                                    <span class="form-check-label">Listing Optimisation</span>
+                                </label>
+                                <label class="form-check">
+                                    <input type="checkbox" value="creative">
+                                    <span class="form-check-label">Creative Studio</span>
+                                </label>
+                                <label class="form-check">
+                                    <input type="checkbox" value="health">
+                                    <span class="form-check-label">Account Health</span>
+                                </label>
+                                <label class="form-check">
+                                    <input type="checkbox" value="sourcing">
+                                    <span class="form-check-label">Product Sourcing</span>
+                                </label>
+                                <label class="form-check">
+                                    <input type="checkbox" value="global">
+                                    <span class="form-check-label">Global Expansion</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group full">
+                            <label class="form-label" for="cf-challenge">Primary Challenge</label>
+                            <select id="cf-challenge" class="form-select">
+                                <option value="" disabled selected>What's your biggest challenge right now?</option>
+                                <option>PPC / Ad spend efficiency</option>
+                                <option>Listing conversion rate</option>
+                                <option>Organic ranking & SEO</option>
+                                <option>Account health / suspension</option>
+                                <option>New product launch</option>
+                                <option>International expansion</option>
+                                <option>Brand protection</option>
+                                <option>Overall profitability</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group full">
+                            <label class="form-label" for="cf-message">Tell Us About Your Brand</label>
+                            <textarea id="cf-message" class="form-textarea" placeholder="Share your current situation, goals, or anything you'd like us to know going in — the more detail, the better your audit will be..."></textarea>
+                        </div>
+
+                    </div>
+                    
+                    <button class="form-submit" id="formSubmit" type="button">
+                        <span>REQUEST MY FREE AUDIT</span>
+                        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    
+                    <p class="form-fine">By submitting you agree to our privacy policy. We never share your data with third parties, ever.</p>
+                </div>
+
+                <div class="form-success" id="formSuccess">
+                    <div class="form-success-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    </div>
+                    <h3>AUDIT BOOKED.</h3>
+                    <p>A senior strategist from our team will review your account and be in touch personally within 24 hours. Check your inbox for a confirmation.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="footer">
+    <div class="footer-glow"></div>
+
+    <div class="container relative-z">
+        <div class="footer-grid-premium">
+            
+            <div class="footer-brand-col">
+                <a href="#" class="brand-logo" style="margin-bottom: 24px; gap: 6px;">
+                    <div class="brand-icon-wrap" style="width: 48px; height: 48px;">
+                        <svg class="brand-icon-svg" viewBox="0 0 180 180" preserveAspectRatio="xMidYMid meet">
+                            <defs>
+                                <linearGradient id="footer-lacquer" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#ff4d5a" />
+                                    <stop offset="40%" stop-color="#d9232d" />
+                                    <stop offset="100%" stop-color="#991118" />
+                                </linearGradient>
+                            </defs>
+                            <circle cx="90" cy="90" r="65" fill="url(#footer-lacquer)" />
+                            <text x="68" y="110" font-family="'Montserrat', sans-serif" font-weight="200" font-size="66" fill="#ffffff" text-anchor="middle" transform="rotate(-24 68 90)">e</text>
+                            <text x="112" y="112" font-family="'Montserrat', sans-serif" font-weight="200" font-size="74" fill="#ffffff" text-anchor="middle">d</text>
+                        </svg>
+                    </div>
+                    <div class="brand-text" style="font-size: 2.2rem;">ECOMM<span class="gradient-text">DOTS</span></div>
+                </a>
+                <p class="footer-desc">The global Amazon digital services agency for brands that are serious about growth. Data-driven, creatively led, and results-obsessed since 2019.</p>
+            </div>
+
+            <div class="footer-nav-col">
+                <div class="footer-col-title">Expertise</div>
+                <div class="footer-links">
+                    <a href="#services"><span>PPC Management</span></a>
+                    <a href="#services"><span>Listing Optimization</span></a>
+                    <a href="#services"><span>Creative Studio</span></a>
+                    <a href="#services"><span>Account Health</span></a>
+                    <a href="#services"><span>Brand Registry</span></a>
+                    <a href="#services"><span>Global Expansion</span></a>
+                </div>
+            </div>
+
+            <div class="footer-nav-col">
+                <div class="footer-col-title">The Agency</div>
+                <div class="footer-links">
+                    <a href="#about"><span>About Us</span></a>
+                    <a href="#case-studies"><span>Case Studies</span></a>
+                    <a href="#team"><span>Our Team</span></a>
+                    <a href="#insights"><span>Intelligence Hub</span></a>
+                    <a href="#contact"><span>Book an Audit</span></a>
+                </div>
+            </div>
+
+            <!-- Column 4: Corporate HQ -->
+            <div class="footer-nav-col">
+                <div class="footer-col-title">Corporate HQ</div>
+                <div class="footer-locations">
+                    <div class="loc-item">
+                        <strong>Operations Center</strong>
+                        <span>Lahore, Pakistan</span>
+                    </div>
+                    <div class="loc-item">
+                        <strong>Global Support Hours</strong>
+                        <span>Mon - Fri · 9:00 AM - 6:00 PM (PKT)</span>
+                    </div>
+                    <div class="loc-item">
+                        <strong>Direct Contact</strong>
+                        <a href="mailto:hello@ecommdots.com" class="loc-link">hello@ecommdots.com</a>
+                        <a href="tel:+923420147244" class="loc-link">+92 342 014 7244</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-giant-text">ECOMMDOTS</div>
+
+        <div class="footer-bottom-bar">
+            <div class="fb-copy-wrap">
+                <div class="fb-copy">© 2026 Ecommdots. Engineered for dominance.</div>
+                <div class="fb-watermark">
+                    <span class="wm-text">Developed by</span>
+                    <a href="https://choudaryhussainali.online/" target="_blank" rel="noopener noreferrer" class="wm-link">CHA</a>
+                </div>
+            </div>
+            
+            <div class="fb-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+
+            <div class="fb-socials">
+                <a href="#" class="fb-social-btn" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="#" class="fb-social-btn" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="#" class="fb-social-btn" aria-label="YouTube">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.015 3.015 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.501 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.377.55 9.377.55s7.505 0 9.377-.55a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- ── VIDEO MODAL ── -->
+<div class="vid-modal-overlay" id="vidModal">
+  <div class="vid-modal-box">
+    <button class="vid-modal-close" id="vidModalClose">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="vid-placeholder" id="vidPlaceholder">
+      <div class="vp-icon"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+      <p id="vidClientName">Client Testimonial</p>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ── CURSOR ── */
+(() => {
+  const dot = document.getElementById('cur-dot');
+  const ring = document.getElementById('cur-ring');
+  if(!dot||!ring) return;
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove', e => { mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'; });
+  const render = () => { rx+=(mx-rx)*.14;ry+=(my-ry)*.14;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(render); };
+  requestAnimationFrame(render);
+  const hov = 'a,button,.video-card,.review-card,.ro-platform,.portrait-card';
+  document.addEventListener('mouseover', e => { if(e.target.closest(hov)){dot.classList.add('hov');ring.classList.add('hov');} });
+  document.addEventListener('mouseout',  e => { if(e.target.closest(hov)){dot.classList.remove('hov');ring.classList.remove('hov');} });
+})();
+
+/* ════════════════════════════════════════════════════════════
+   SOCIAL SIDEBAR TOGGLE ENGINE
+   ════════════════════════════════════════════════════════════ */
+(function(){
+  const sidebar = document.getElementById('socialSidebar');
+  const toggleBtn = document.getElementById('toggleBtn');
+  if(sidebar && toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+    });
+  }
+})();
+
+/* ════════════════════════════════════════════════════════════
+   CALENDLY POPUP ENGINE (STEALTH MODE)
+   ════════════════════════════════════════════════════════════ */
+(function(){
+  const calUrl='https://calendly.com/mailhussainali00/30min?hide_event_type_details=1&background_color=0a0a0a&text_color=ffffff&primary_color=d9232d';
+  const openCal=(e)=>{
+    e.preventDefault();
+    if(typeof Calendly !== 'undefined'){
+      Calendly.initPopupWidget({url: calUrl});
+    }
+    return false;
+  };
+  
+  ['desktopCalendlyBtn','mobileCalendlyBtn'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el) { el.addEventListener('click', openCal); }
+  });
+})();
+
+/* ════════════════════════════════════════════════════════════
+   MOBILE HAMBURGER & NAV OVERLAY
+   ════════════════════════════════════════════════════════════ */
+(function(){
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  if(!hamburger || !mobileNav) return;
+  
+  const toggle = (open) => {
+    hamburger.classList.toggle('is-open', open);
+    hamburger.setAttribute('aria-expanded', String(open));
+    mobileNav.classList.toggle('is-open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+  
+  hamburger.addEventListener('click', () => toggle(!hamburger.classList.contains('is-open')));
+  document.querySelectorAll('[data-close-nav]').forEach(a => a.addEventListener('click', () => toggle(false)));
+  mobileNav.addEventListener('click', e => { if(e.target === mobileNav) toggle(false); });
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') toggle(false); });
+})();
+
+/* ════════════════════════════════════════════════════════════
+   SMOOTH SCROLL ROUTING
+   ════════════════════════════════════════════════════════════ */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return; 
+        
+        // Standard smooth scroll for navigation
+        const target = document.querySelector(targetId);
+        if (target) { 
+            e.preventDefault();
+            // Close mobile nav if open
+            const mobileNav = document.getElementById('mobileNav');
+            const hamburger = document.getElementById('hamburger');
+            if(mobileNav && mobileNav.classList.contains('is-open')){
+                mobileNav.classList.remove('is-open');
+                hamburger && hamburger.classList.remove('is-open');
+                hamburger && hamburger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+            // Calculate offset to account for the pinned header
+            const headerH = document.getElementById('mainHeader')?.offsetHeight || 80;
+            const top = target.getBoundingClientRect().top + window.scrollY - headerH - 16;
+            window.scrollTo({ top, behavior: 'smooth' });
+        }
+    });
+});
+/* ── PROOF STRIP ── */
+const tags = ['VERIFIED CLIENT REVIEWS','87+ BRANDS SCALED','5/5 STAR RATING','96% RENEWAL RATE','$100M+ REVENUE MANAGED','AMAZON EXPERTS SINCE 2019',
+              'VERIFIED CLIENT REVIEWS','87+ BRANDS SCALED','5/5 STAR RATING','96% RENEWAL RATE','$100M+ REVENUE MANAGED','AMAZON EXPERTS SINCE 2019'];
+const track = document.getElementById('stripTrack');
+tags.forEach((t,i) => {
+  const el = document.createElement('div');
+  el.className = 'strip-item';
+  el.innerHTML = `<span class="strip-text">${t}</span>${i<tags.length-1?'<span class="strip-dot"></span>':''}`;
+  track.appendChild(el);
+});
+
+
+
+
+/* ── REVEAL OBSERVER ── */
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('is-visible'); revObs.unobserve(e.target); } });
+}, { rootMargin:'0px 0px -60px 0px' });
+document.querySelectorAll('.reveal,.review-card').forEach(el => revObs.observe(el));
+
+/* ── COUNTER ANIMATION ── */
+const cntObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.counter').forEach(c => {
+        const t = +c.dataset.target, d = 2000, s = performance.now();
+        const upd = now => { const p=Math.min((now-s)/d,1), v=Math.floor((1-Math.pow(1-p,4))*t);c.textContent=v;if(p<1)requestAnimationFrame(upd);else c.textContent=t; };
+        requestAnimationFrame(upd);
+      });
+      cntObs.unobserve(e.target);
+    }
+  });
+},{threshold:.3});
+document.querySelectorAll('.testi-hero').forEach(el => cntObs.observe(el));
+
+/* ── RATING BARS ANIMATION ── */
+const barObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.ro-bar-fill').forEach((bar,i) => {
+        const w = parseFloat(bar.dataset.width||0);
+        setTimeout(()=>{ bar.style.transform=`scaleX(${w})`; bar.classList.add('animated'); },i*120);
+      });
+      barObs.unobserve(e.target);
+    }
+  });
+},{threshold:.3});
+document.querySelectorAll('.ro-bars').forEach(el => barObs.observe(el));
+
+/* ── VIDEO CAROUSEL ── */
+const vcTrack = document.getElementById('videoTrack');
+const vcCards = vcTrack ? Array.from(vcTrack.querySelectorAll('.video-card')) : [];
+const vcDotsEl = document.getElementById('vcDots');
+let vcIdx = 0;
+
+function getVcStep() {
+  if(window.innerWidth > 1100) return 380+28;
+  if(window.innerWidth > 640)  return 380+28;
+  return window.innerWidth * 0.85 + 16;
+}
+
+function buildDots(){
+  if(!vcDotsEl) return;
+  vcDotsEl.innerHTML = '';
+  vcCards.forEach((_,i)=>{
+    const d = document.createElement('div');
+    d.className='cc-dot'+(i===vcIdx?' active':'');
+    d.addEventListener('click',()=>{ vcIdx=i;updateCarousel(); });
+    vcDotsEl.appendChild(d);
+  });
+}
+
+function updateCarousel(){
+  const step = getVcStep();
+  const maxIdx = Math.max(0, vcCards.length - Math.floor((vcTrack.parentElement.offsetWidth) / step));
+  vcIdx = Math.max(0, Math.min(vcIdx, maxIdx));
+  vcTrack.style.transform = `translateX(-${vcIdx * step}px)`;
+  document.querySelectorAll('.cc-dot').forEach((d,i) => d.classList.toggle('active', i===vcIdx));
+}
+
+buildDots();
+
+document.getElementById('vcPrev')?.addEventListener('click', () => { vcIdx=Math.max(0,vcIdx-1); updateCarousel(); });
+document.getElementById('vcNext')?.addEventListener('click', () => { vcIdx++; updateCarousel(); });
+window.addEventListener('resize', () => { buildDots(); updateCarousel(); });
+
+/* ── VIDEO MODAL ── */
+const vidModal = document.getElementById('vidModal');
+const vidModalClose = document.getElementById('vidModalClose');
+
+document.querySelectorAll('.vc-play').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const card = btn.closest('.video-card');
+    const clientName = card.dataset.client || 'Client Testimonial';
+    document.getElementById('vidClientName').textContent = clientName + ' — Video Testimonial';
+    vidModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+const closeVidModal = () => { vidModal.classList.remove('open'); document.body.style.overflow = ''; };
+vidModalClose?.addEventListener('click', closeVidModal);
+vidModal?.addEventListener('click', e => { if(e.target === vidModal) closeVidModal(); });
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeVidModal(); });
+
+
+/* ── PORTRAIT CARD PARALLAX ── */
+const pCards = document.querySelectorAll('.portrait-card');
+document.addEventListener('mousemove', e => {
+  if(window.innerWidth < 1100) return;
+  const cx=window.innerWidth/2, cy=window.innerHeight/2;
+  const dx=(e.clientX-cx)/cx, dy=(e.clientY-cy)/cy;
+  pCards.forEach((c,i) => {
+    const depth = [1.5,2.5,2,1,1.8][i] || 1.5;
+    c.style.transform = `translate(${dx*depth*8}px, ${dy*depth*8}px)`;
+  });
+});
+
+
+/* ─── FORM SUCCESS TOGGLE ─── */
+document.getElementById('formSubmit').addEventListener('click', function() {
+    const btn = this;
+    btn.innerHTML = '<span>SENDING...</span>';
+    setTimeout(() => {
+        const formContainer = document.getElementById('contactForm');
+        const successContainer = document.getElementById('formSuccess');
+        if(formContainer && successContainer) {
+            formContainer.style.display = 'none';
+            successContainer.classList.add('show');
+        }
+    }, 1500);
+});
+
+
+</script>
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+</body>
+</html>

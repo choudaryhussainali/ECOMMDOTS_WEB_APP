@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vault Command Center</title>
+    <style>
+        body { background: #050505; color: #e5e5e5; font-family: system-ui, -apple-system, sans-serif; padding: 40px; margin: 0; }
+        .wrapper { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr; gap: 40px; }
+        .header-panel { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; padding-bottom: 20px; margin-bottom: 20px; }
+        h1, h2, h3 { font-weight: 800; letter-spacing: 1px; color: #fff; margin: 0 0 20px 0; }
+        .panel { background: #111; padding: 30px; border-radius: 8px; border: 1px solid #222; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        
+        label { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 8px; font-weight: 700; }
+        input[type="text"], input[type="number"], select, textarea { width: 100%; background: #0a0a0a; border: 1px solid #333; color: #fff; padding: 12px; margin-bottom: 20px; border-radius: 4px; box-sizing: border-box; outline: none; }
+        input:focus, select:focus, textarea:focus { border-color: #d9232d; }
+        
+        .flex-row { display: flex; gap: 20px; }
+        .flex-row > div { flex: 1; }
+        
+        .checkbox-group { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+        .checkbox-group input { width: auto; margin: 0; }
+        
+        button.btn-primary { background: #d9232d; color: #fff; padding: 16px 24px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; border: none; border-radius: 4px; cursor: pointer; width: 100%; transition: 0.3s; }
+        button.btn-primary:hover { background: #ff3344; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(217,35,45,0.3); }
+        
+        .article-list { list-style: none; padding: 0; margin: 0; }
+        .article-item { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #222; }
+        .article-meta { font-size: 12px; color: #888; margin-top: 4px; }
+        .btn-delete { background: transparent; color: #d9232d; border: 1px solid #d9232d; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold; }
+        .btn-delete:hover { background: #d9232d; color: #fff; }
+        
+        .flash { background: #166534; color: #fff; padding: 15px; border-radius: 4px; margin-bottom: 20px; font-weight: bold; grid-column: 1 / -1; }
+    </style>
+    <!-- Premium WYSIWYG Editor -->
+    <script src="https://cdn.tiny.cloud/1/17o6pfx0fgmciqczyqkfke08s1j06vbyjx93u2gddo9erpmr/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+      tinymce.init({
+        selector: '#content',
+        plugins: 'link image code lists',
+        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright | list numlist | code link image',
+        skin: "oxide-dark", content_css: "dark", height: 500, menubar: false
+      });
+    </script>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="header-panel">
+        <h1>CMS <span style="color:#d9232d;">ECOMMDOTS</span></h1>
+        <a href="{{ url_for('logout') }}" style="color:#888; text-decoration:none; font-weight:bold;">SECURE LOGOUT →</a>
+    </div>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <div class="flash">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <!-- PUBLISHING TERMINAL -->
+    <div class="panel">
+        <h3>DRAFT NEW INTELLIGENCE</h3>
+        <form method="POST">
+            <label>Headline (Title)</label>
+            <input type="text" name="title" required placeholder="e.g., THE Q4 ALGORITHMIC PLAYBOOK">
+
+            <div class="flex-row">
+                <div>
+                    <label>Primary Category</label>
+                    <select name="category" required>
+                        <option value="Amazon Strategy">Amazon Strategy</option>
+                        <option value="PPC & Ads">PPC & Ads</option>
+                        <option value="Brand Building">Brand Building</option>
+                        <option value="Sourcing">Sourcing</option>
+                        <option value="Creative Studio">Creative Studio</option>
+                        <option value="Case Study">Case Study</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Subcategory (Meta Tag)</label>
+                    <input type="text" name="subcategory" required placeholder="e.g., Advanced, Operations">
+                </div>
+                <div>
+                    <label>Read Time (Minutes)</label>
+                    <input type="number" name="read_time" required value="5">
+                </div>
+            </div>
+
+            <label>Thumbnail Image URL</label>
+            <input type="text" name="thumbnail_url" required placeholder="https://images.unsplash.com/...">
+
+            <label>Short Excerpt (Grid Description)</label>
+            <textarea name="excerpt" required rows="3" placeholder="A compelling 2-sentence hook..."></textarea>
+
+            <label>Full Intelligence Brief (Article Body)</label>
+            <textarea id="content" name="content"></textarea>
+
+            <h3 style="margin-top:30px; font-size:16px;">AUTHOR CREDENTIALS</h3>
+            <div class="flex-row">
+                <div>
+                    <label>Author Name</label>
+                    <input type="text" name="author_name" required value="Saif Ur Rehman">
+                </div>
+                <div>
+                    <label>Author Avatar URL</label>
+                    <input type="text" name="author_image" required value="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80">
+                </div>
+            </div>
+
+            <h3 style="margin-top:10px; font-size:16px;">LAYOUT OVERRIDES</h3>
+            <div class="flex-row" style="margin-bottom: 30px;">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="is_wide" name="is_wide" value="1">
+                    <label for="is_wide" style="margin:0;">Make Card Wide (Spans 2 Grid Columns)</label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-primary">DEPLOY TO LIVE GRID</button>
+        </form>
+    </div>
+
+    <!-- ASSET MANAGEMENT -->
+    <div class="panel">
+        <h3>ACTIVE ASSETS ({{ articles|length }})</h3>
+        <ul class="article-list">
+            {% for article in articles %}
+            <li class="article-item">
+                <div>
+                    <div style="font-weight:bold;">{{ article.title }}</div>
+                    <div class="article-meta">{{ article.category }} &bull; {{ article.publish_date }} &bull; /blog/{{ article.slug }}</div>
+                </div>
+                <form action="{{ url_for('delete_article', id=article.id) }}" method="POST" onsubmit="return confirm('WARNING: Are you sure you want to permanently delete this digital asset?');">
+                    <button type="submit" class="btn-delete">DELETE</button>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

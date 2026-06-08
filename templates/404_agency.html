@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="error-section" style="position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #050505;">
+    
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(217,35,45,0.1) 0%, transparent 70%); border-radius: 50%; pointer-events: none;"></div>
+
+    <div class="container" style="position: relative; z-index: 2; text-align: center;">
+        
+        <div class="blog-hero-eyebrow" style="justify-content: center;">
+            <span class="eyebrow-line"></span>
+            <div class="live-dot-wrap">
+                <span class="live-dot"></span>
+                <span class="live-dot-text">Error 404</span>
+            </div>
+            <span class="eyebrow-line"></span>
+        </div>
+
+        <h1 style="font-family: var(--font-display); font-size: clamp(80px, 12vw, 160px); color: #fff; line-height: 0.9; margin-bottom: 24px; text-shadow: 0 20px 40px rgba(0,0,0,0.8);">
+            PAGE <span style="color: var(--red);">NOT FOUND.</span>
+        </h1>
+
+        <p style="font-family: var(--font-sans); font-size: clamp(16px, 1.5vw, 20px); font-weight: 300; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto 48px; line-height: 1.6;">
+            The digital sector you are attempting to access has been moved, deleted, or never existed. Your connection remains secure.
+        </p>
+
+        <a href="{{ url_for('home') }}" class="btn-audit" style="padding: 16px 40px; font-size: 13px;">
+            RETURN TO HOMEPAGE →
+        </a>
+        
+    </div>
+</section>
+{% endblock %}

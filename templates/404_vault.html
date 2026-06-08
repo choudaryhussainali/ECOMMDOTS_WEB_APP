@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}404 - Asset Not Found | Ecommdots{% endblock %}
+
+{% block content %}
+<section class="blog-hero" style="min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center;">
+    <div class="hero-gradient-overlay" style="background: #050505;"></div>
+    <div class="blog-hero-content" style="position: relative; z-index: 5;">
+        <h1 class="blog-hero-h1" style="font-size: clamp(60px, 8vw, 120px);">
+            404<br><span class="red-accent">NOT FOUND.</span>
+        </h1>
+        <p class="blog-hero-sub" style="margin: 0 auto 40px; background: transparent; border: none; box-shadow: none;">
+            The intelligence you are looking for does not exist or has been moved to the archives.
+        </p>
+        <a href="{{ url_for('blog_grid') }}" class="btn-audit" style="padding: 16px 40px; font-size: 14px;">RETURN TO VAULT →</a>
+    </div>
+</section>
+{% endblock %}

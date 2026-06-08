@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="blog-hero">
+    <img src="{{ url_for('static', filename='img/blogs.png') }}" alt="Intelligence Vault Hero" class="hero-bg-img">
+    <div class="hero-gradient-overlay"></div>
+    <div class="hero-side-glow"></div>
+
+    <div class="blog-hero-content">
+        <div class="blog-hero-eyebrow">
+            <span class="eyebrow-line"></span>
+            <div class="live-dot-wrap">
+                <span class="live-dot"></span>
+                <span class="live-dot-text">Updated Weekly</span>
+            </div>
+        </div>
+
+        <h1 class="blog-hero-h1">
+            INTELLIGENCE<br>
+            <span class="red-accent">VAULT.</span>
+        </h1>
+
+        <p class="blog-hero-sub">
+            Actionable frameworks, data-driven strategies, and insider intelligence for Amazon sellers who are serious about category dominance.
+        </p>
+
+        <div class="blog-hero-meta">
+            <div class="hero-meta-stat">
+                <div class="hero-meta-num">24<span>+</span></div>
+                <div class="hero-meta-label">Expert Guides</div>
+            </div>
+            <div class="hero-meta-divider"></div>
+            <div class="hero-meta-stat">
+                <div class="hero-meta-num">7</div>
+                <div class="hero-meta-label">Categories</div>
+            </div>
+            <div class="hero-meta-divider"></div>
+            <div class="hero-meta-stat">
+                <div class="hero-meta-num">6K<span>+</span></div>
+                <div class="hero-meta-label">Subscribers</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-scroll-indicator">
+        <div class="scroll-line"></div>
+        <div class="scroll-text">Scroll</div>
+    </div>
+</section>
+
+<nav class="cat-nav-wrapper" id="catNav">
+    <div class="cat-nav-inner">
+        <a class="cat-btn active" href="#" data-cat="all">
+            All Articles <span class="cat-count">{{ total_articles }}</span>
+        </a>
+        
+        {% for cat, count in cat_counts.items() %}
+        <a class="cat-btn" href="#" data-cat="{{ cat }}">
+            {{ cat }} <span class="cat-count">{{ count }}</span>
+        </a>
+        {% endfor %}
+    </div>
+</nav>
+<section class="blog-grid-section">
+    <div class="container">
+        <div class="grid-header">
+            <div class="grid-title-block reveal">
+                <div class="section-eyebrow">
+                    <span class="ey-line"></span>
+                    <span class="ey-text" style="color:#555">Latest Intelligence</span>
+                </div>
+                <h2 class="grid-h2">ALL<br><span class="red">ARTICLES.</span></h2>
+                <p class="grid-h2-sub">Field-tested frameworks from the agency that manages $100M+ in Amazon revenue.</p>
+            </div>
+            <div class="grid-controls reveal">
+                <div class="sort-btn">
+                    <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="15" y2="12"/><line x1="3" y1="18" x2="9" y2="18"/></svg>
+                    Newest First
+                </div>
+            </div>
+        </div>
+
+        <div class="blog-grid" id="blogGrid">
+            {% include '_blog_loop.html' %}
+        </div>
+
+        <div class="load-more-section">
+            {% if total_articles > 10 %}
+            <a href="#" class="load-more-btn" id="loadMoreBtn" data-offset="10">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+                <span id="loadMoreText">Load More Articles</span>
+            </a>
+            <p class="load-more-count" id="loadMoreCount">Showing 10 of {{ total_articles }} articles</p>
+            {% else %}
+            <a href="#" class="load-more-btn" style="opacity: 0.5; pointer-events: none;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>All Articles Loaded</span>
+            </a>
+            <p class="load-more-count">Showing all {{ total_articles }} articles</p>
+            {% endif %}
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

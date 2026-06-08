@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Intelligence Vault — Ecommdots | Amazon Growth Insights{% endblock %}</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Bebas+Neue&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div id="cur-dot"></div>
+<div id="cur-ring"></div>
+
+<div class="social-sidebar open" id="socialSidebar">
+    <button class="toggle-btn" id="toggleBtn" aria-label="Toggle sidebar">
+        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+    <div class="social-links">
+        <a href="https://wa.me/YOUR_NUMBER" target="_blank" class="social-btn whatsapp-btn" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+        <!-- <a href="mailto:hello@ecommdots.com" class="social-btn email-btn" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><polyline points="22,4 12,13 2,4"></polyline></svg>
+        </a> -->
+            <!-- NEW LinkedIn -->
+        <a href="https://linkedin.com/company/yourcompany" target="_blank" rel="noopener noreferrer" class="social-btn linkedin-btn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+        </a>
+
+        <!-- NEW YouTube -->
+        <a href="https://youtube.com/@yourchannel" target="_blank" rel="noopener noreferrer" class="social-btn youtube-btn" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.015 3.015 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.501 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.377.55 9.377.55s7.505 0 9.377-.55a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+        </a>
+    </div>
+</div>
+
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation">
+  <div class="mobile-nav-links">
+    <a href="services.html" data-close-nav>Services</a>
+    <a href="index.html#brands" data-close-nav>Brands</a>
+    <a href="about.html" data-close-nav>About</a>
+    <a href="index.html#case-studies" data-close-nav>Case Studies</a>
+    <a href="blogs.html" data-close-nav>Blog</a>
+    <a href="index.html#team" data-close-nav>Team</a>
+  </div>
+  <div class="mobile-nav-cta">
+    <a href="#contact" class="btn-audit" id="mobileCalendlyBtn">BOOK FREE CONSULTATION</a>
+  </div>
+</nav>
+
+<header class="main-header" id="mainHeader">
+    <nav class="container nav-wrapper">
+        <a href="index.html" class="brand-logo">
+            <div class="brand-icon-wrap">
+                <svg class="brand-icon-svg" viewBox="0 0 180 180" preserveAspectRatio="xMidYMid meet">
+                    <defs>
+                        <linearGradient id="header-lacquer" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ff4d5a" />
+                            <stop offset="40%" stop-color="#d9232d" />
+                            <stop offset="100%" stop-color="#991118" />
+                        </linearGradient>
+                        <filter id="header-glow" x="-30%" y="-30%" width="160%" height="160%">
+                            <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#d9232d" flood-opacity="0.45" />
+                        </filter>
+                    </defs>
+                    <g class="header-mark-group">
+                        <circle cx="90" cy="90" r="65" fill="url(#header-lacquer)" filter="url(#header-glow)" />
+                        <g class="header-ed-text">
+                            <text x="68" y="110" font-family="'Montserrat', 'Futura', 'Century Gothic', sans-serif" font-weight="200" font-size="66" fill="#ffffff" text-anchor="middle" transform="rotate(-24 68 90)">e</text>
+                            <text x="112" y="112" font-family="'Montserrat', 'Futura', 'Century Gothic', sans-serif" font-weight="200" font-size="74" fill="#ffffff" text-anchor="middle">d</text>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+            <div class="brand-text">ECOMM<span class="gradient-text">DOTS</span></div>
+        </a>
+        <ul class="nav-links">
+            <li class="nav-has-dropdown">
+                <a href="#services" class="nav-drop-trigger">
+                    Services 
+                    <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" fill="none"><path d="M6 9l6 6 6-6"/></svg>
+                </a>
+                <div class="nav-dropdown">
+                    <div class="nav-dropdown-inner mega-menu">
+                        <a href="services.html#account-management" class="nav-drop-item">
+                            <span class="nd-title">Full Account Management</span>
+                            <span class="nd-sub">End-to-end operational dominance</span>
+                        </a>
+                        <a href="services.html#ppc-advertising" class="nav-drop-item">
+                            <span class="nd-title">PPC & Advertising</span>
+                            <span class="nd-sub">Profit-driven ad architectures</span>
+                        </a>
+                        <a href="services.html#product-research" class="nav-drop-item">
+                            <span class="nd-title">Product Intelligence</span>
+                            <span class="nd-sub">Data-backed market forecasting</span>
+                        </a>
+                        <a href="services.html#brand-protection" class="nav-drop-item">
+                            <span class="nd-title">Brand Protection</span>
+                            <span class="nd-sub">Ironclad IP defense & registry</span>
+                        </a>
+                        <a href="services.html#sourcing-management" class="nav-drop-item">
+                            <span class="nd-title">Global Sourcing</span>
+                            <span class="nd-sub">Strategic procurement & logistics</span>
+                        </a>
+                        <a href="services.html#product-images-videos" class="nav-drop-item">
+                            <span class="nd-title">Creative Studio</span>
+                            <span class="nd-sub">High-converting visual assets</span>
+                        </a>
+                        <a href="services.html#aplus-content" class="nav-drop-item">
+                            <span class="nd-title">A+ Content Design</span>
+                            <span class="nd-sub">Immersive brand storytelling</span>
+                        </a>
+                        <a href="services.html" class="nav-drop-item">
+                            <span class="nd-title">All Services</span>
+                            <span class="nd-sub">Bespoke 8-figure architectures</span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li><a href="index.html#brands">Brands</a></li>
+            <li class="nav-has-dropdown">
+                <a href="about.html" class="nav-drop-trigger">
+                    About 
+                    <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" fill="none"><path d="M6 9l6 6 6-6"/></svg>
+                </a>
+                <div class="nav-dropdown">
+                    <div class="nav-dropdown-inner">
+                        <a href="about.html#about" class="nav-drop-item">
+                            <span class="nd-title">Our Story</span>
+                            <span class="nd-sub">About ECOMMDOTS</span>
+                        </a>
+                        <a href="about.html#mission" class="nav-drop-item">
+                            <span class="nd-title">Core Philosophy</span>
+                            <span class="nd-sub">Our mission & manifesto</span>
+                        </a>
+                        <a href="about.html#legacy" class="nav-drop-item">
+                            <span class="nd-title">Agency Genesis</span>
+                            <span class="nd-sub">The legacy we're building</span>
+                        </a>
+                        <a href="index.html#team" class="nav-drop-item">
+                            <span class="nd-title">The Architects</span>
+                            <span class="nd-sub">Leadership & strategy team</span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li><a href="index.html#case-studies">Case Studies</a></li>
+        </ul>
+        <div class="nav-controls">
+            <a href="#contact" class="btn-audit" id="desktopCalendlyBtn">BOOK FREE CONSULTATION</a>
+            <button class="hamburger" id="hamburger" aria-label="Open Menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+</header>
+
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+<section class="newsletter-section" id="newsletter">
+    <div class="container">
+        <div class="newsletter-inner">
+            <div class="nl-copy reveal">
+                <div class="section-eyebrow">
+                    <span class="ey-line"></span>
+                    <span class="ey-text" style="color:var(--red)">Intelligence Drops</span>
+                </div>
+                <h2 class="nl-h2">GET THE<br><em>EDGE.</em></h2>
+                <p class="nl-sub">Every Friday, our senior strategists distill the week's most actionable Amazon intelligence — zero filler, no fluff, pure signal delivered to your inbox.</p>
+                <div class="nl-trust-list">
+                    <div class="nl-trust-item">
+                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                        6,200+ subscribers across 40+ countries
+                    </div>
+                    <div class="nl-trust-item">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        Weekly Friday delivery — never daily spam
+                    </div>
+                    <div class="nl-trust-item">
+                        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        Unsubscribe anytime — no hard feelings
+                    </div>
+                </div>
+            </div>
+
+            <div class="nl-form-card reveal from-right">
+                <h3 class="nl-form-title">JOIN THE VAULT</h3>
+                <p class="nl-form-sub">Intelligence reserved for serious sellers. Enter your details below.</p>
+
+                <form class="nl-form" id="nlForm">
+                    <div class="nl-input-group">
+                        <input type="text" class="nl-input" placeholder="Your full name" required>
+                    </div>
+                    <div class="nl-input-group">
+                        <input type="email" class="nl-input" placeholder="Work email address" required>
+                    </div>
+                    <div class="nl-input-group">
+                        <select class="nl-input nl-select">
+                            <option value="" disabled selected>Monthly Amazon Revenue</option>
+                            <option>Under $10,000 / month</option>
+                            <option>$10,000 – $50,000 / month</option>
+                            <option>$50,000 – $250,000 / month</option>
+                            <option>$250,000 – $1M / month</option>
+                            <option>$1M+ / month</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="nl-submit">
+                        <span>ACCESS THE VAULT →</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                </form>
+                <p class="nl-fine">No spam. No paid promotions. Just pure intelligence every Friday at 7AM EST.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-glow"></div>
+
+    <div class="container relative-z">
+        <div class="footer-grid-premium">
+            
+            <div class="footer-brand-col">
+                <a href="#" class="brand-logo" style="margin-bottom: 24px; gap: 6px;">
+                    <div class="brand-icon-wrap" style="width: 48px; height: 48px;">
+                        <svg class="brand-icon-svg" viewBox="0 0 180 180" preserveAspectRatio="xMidYMid meet">
+                            <defs>
+                                <linearGradient id="footer-lacquer" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#ff4d5a" />
+                                    <stop offset="40%" stop-color="#d9232d" />
+                                    <stop offset="100%" stop-color="#991118" />
+                                </linearGradient>
+                            </defs>
+                            <circle cx="90" cy="90" r="65" fill="url(#footer-lacquer)" />
+                            <text x="68" y="110" font-family="'Montserrat', sans-serif" font-weight="200" font-size="66" fill="#ffffff" text-anchor="middle" transform="rotate(-24 68 90)">e</text>
+                            <text x="112" y="112" font-family="'Montserrat', sans-serif" font-weight="200" font-size="74" fill="#ffffff" text-anchor="middle">d</text>
+                        </svg>
+                    </div>
+                    <div class="brand-text" style="font-size: 2.2rem;">ECOMM<span class="gradient-text">DOTS</span></div>
+                </a>
+                <p class="footer-desc">The global Amazon digital services agency for brands that are serious about growth. Data-driven, creatively led, and results-obsessed since 2019.</p>
+            </div>
+
+            <div class="footer-nav-col">
+                <div class="footer-col-title">Expertise</div>
+                <div class="footer-links">
+                    <a href="#services"><span>PPC Management</span></a>
+                    <a href="#services"><span>Listing Optimization</span></a>
+                    <a href="#services"><span>Creative Studio</span></a>
+                    <a href="#services"><span>Account Health</span></a>
+                    <a href="#services"><span>Brand Registry</span></a>
+                    <a href="#services"><span>Global Expansion</span></a>
+                </div>
+            </div>
+
+            <div class="footer-nav-col">
+                <div class="footer-col-title">The Agency</div>
+                <div class="footer-links">
+                    <a href="#about"><span>About Us</span></a>
+                    <a href="#case-studies"><span>Case Studies</span></a>
+                    <a href="#team"><span>Our Team</span></a>
+                    <a href="#insights"><span>Intelligence Hub</span></a>
+                    <a href="#contact"><span>Book an Audit</span></a>
+                </div>
+            </div>
+
+            <!-- Column 4: Corporate HQ -->
+            <div class="footer-nav-col">
+                <div class="footer-col-title">Corporate HQ</div>
+                <div class="footer-locations">
+                    <div class="loc-item">
+                        <strong>Operations Center</strong>
+                        <span>Lahore, Pakistan</span>
+                    </div>
+                    <div class="loc-item">
+                        <strong>Global Support Hours</strong>
+                        <span>Mon - Fri · 9:00 AM - 6:00 PM (PKT)</span>
+                    </div>
+                    <div class="loc-item">
+                        <strong>Direct Contact</strong>
+                        <a href="mailto:hello@ecommdots.com" class="loc-link">hello@ecommdots.com</a>
+                        <a href="tel:+923420147244" class="loc-link">+92 342 014 7244</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-giant-text">ECOMMDOTS</div>
+
+        <div class="footer-bottom-bar">
+            <div class="fb-copy-wrap">
+                <div class="fb-copy">© 2026 Ecommdots. Engineered for dominance.</div>
+                <div class="fb-watermark">
+                    <span class="wm-text">Developed by</span>
+                    <a href="https://choudaryhussainali.online/" target="_blank" rel="noopener noreferrer" class="wm-link">CHA</a>
+                </div>
+            </div>
+            
+            <div class="fb-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+
+            <div class="fb-socials">
+                <a href="#" class="fb-social-btn" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="#" class="fb-social-btn" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="#" class="fb-social-btn" aria-label="YouTube">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.015 3.015 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.501 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.377.55 9.377.55s7.505 0 9.377-.55a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<button class="back-top-btn" id="backTopBtn" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<script>
+/* ── INSTANT HERO IGNITION ── */
+document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+        document.body.classList.add("site-ignited");
+    }, 100);
+});
+
+/* ── ELITE CUSTOM CURSOR (Lerp Engine) ── */
+(() => {
+    const dot = document.getElementById('cur-dot');
+    const ring = document.getElementById('cur-ring');
+    if (!dot || !ring) return;
+    let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+    document.addEventListener('mousemove', e => {
+        mouseX = e.clientX; mouseY = e.clientY;
+        dot.style.left = mouseX + 'px'; dot.style.top = mouseY + 'px';
+    });
+    const renderCursor = () => {
+        ringX += (mouseX - ringX) * 0.14;
+        ringY += (mouseY - ringY) * 0.14;
+        ring.style.left = ringX + 'px'; ring.style.top = ringY + 'px';
+        requestAnimationFrame(renderCursor);
+    };
+    requestAnimationFrame(renderCursor);
+    const HOV = 'a, button, .blog-card, .topic-tag, .featured-visual, .sort-btn, .cat-btn';
+    document.addEventListener('mouseover', e => { if (e.target.closest(HOV)) { dot.classList.add('hov'); ring.classList.add('hov'); }});
+    document.addEventListener('mouseout', e => { if (e.target.closest(HOV)) { dot.classList.remove('hov'); ring.classList.remove('hov'); }});
+})();
+
+
+
+/* ─── CALENDLY POPUP ─── */
+(function(){
+  const calUrl='https://calendly.com/mailhussainali00/30min?hide_event_type_details=1&background_color=0a0a0a&text_color=ffffff&primary_color=d9232d';
+  const openCal=(e)=>{
+    e.preventDefault();
+    if(typeof Calendly!=='undefined'){
+      Calendly.initPopupWidget({url:calUrl});
+    }
+    return false;
+  };
+  ['desktopCalendlyBtn','mobileCalendlyBtn'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el)el.addEventListener('click',openCal);
+  });
+})();
+
+/* ─── MOBILE HAMBURGER & NAV OVERLAY ─── */
+(function(){
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  if(!hamburger || !mobileNav) return;
+  
+  const toggle = (open) => {
+    hamburger.classList.toggle('is-open', open);
+    hamburger.setAttribute('aria-expanded', String(open));
+    mobileNav.classList.toggle('is-open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+  
+  hamburger.addEventListener('click', () => toggle(!hamburger.classList.contains('is-open')));
+  document.querySelectorAll('[data-close-nav]').forEach(a => a.addEventListener('click', () => toggle(false)));
+  mobileNav.addEventListener('click', e => { if(e.target === mobileNav) toggle(false); });
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') toggle(false); });
+})();
+
+/* ─── SMOOTH SCROLL & MENU AUTO-CLOSE ─── */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const id = this.getAttribute('href');
+    if(id === '#') return;
+    const target = document.querySelector(id);
+    if(target) {
+      e.preventDefault();
+      // Close mobile nav if open
+      const mobileNav = document.getElementById('mobileNav');
+      const hamburger = document.getElementById('hamburger');
+      if(mobileNav && mobileNav.classList.contains('is-open')){
+        mobileNav.classList.remove('is-open');
+        hamburger && hamburger.classList.remove('is-open');
+        hamburger && hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+      // Calculate offset to account for the pinned header
+      const headerH = document.getElementById('mainHeader')?.offsetHeight || 80;
+      const top = target.getBoundingClientRect().top + window.scrollY - headerH - 16;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+/* ── SMOOTH SCROLL ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+        const targetId = a.getAttribute('href');
+        if(targetId === '#') return;
+        const t = document.querySelector(targetId);
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+});
+
+/* ── MARQUEE STRIP BUILD ── */
+const marqueeItems = [
+    'Q4 ALGORITHMIC PLAYBOOK', 'PPC DOMINANCE', 'BRAND REGISTRY FORTRESS', 'A9 ALGORITHM MASTERY',
+    'INVENTORY INTELLIGENCE', 'ACOS VS TACOS', 'SUBSCRIBE & SAVE FUNNELS', 'LISTING SEO ARCHITECTURE',
+    'ZERO-TO-RANK IN 30 DAYS', 'CREATIVE THAT CONVERTS', 'SUPPLY CHAIN CONTROL', 'CATEGORY DOMINATION',
+    'Q4 ALGORITHMIC PLAYBOOK', 'PPC DOMINANCE', 'BRAND REGISTRY FORTRESS', 'A9 ALGORITHM MASTERY',
+    'INVENTORY INTELLIGENCE', 'ACOS VS TACOS', 'SUBSCRIBE & SAVE FUNNELS', 'LISTING SEO ARCHITECTURE',
+    'ZERO-TO-RANK IN 30 DAYS', 'CREATIVE THAT CONVERTS', 'SUPPLY CHAIN CONTROL', 'CATEGORY DOMINATION'
+];
+const marqueeInner = document.getElementById('marqueeInner');
+if (marqueeInner) {
+    marqueeItems.forEach((item, i) => {
+        const el = document.createElement('div');
+        el.className = 'marquee-item-inner';
+        el.innerHTML = `<span class="marquee-text-inner">${item}</span>${i < marqueeItems.length - 1 ? '<span class="marquee-sep-inner"></span>' : ''}`;
+        marqueeInner.appendChild(el);
+    });
+}
+
+/* ── CATEGORY FILTER ── */
+document.querySelectorAll('.cat-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+    });
+});
+
+/* ── INTERSECTION OBSERVER (Reveal + Blog Cards) ── */
+const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); revealObs.unobserve(e.target); }
+    });
+}, { rootMargin: "0px 0px -60px 0px" });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+const cardObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); cardObs.unobserve(e.target); }
+    });
+}, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll('.blog-card').forEach(card => cardObs.observe(card));
+
+/* ── BACK TO TOP ── */
+const backTopBtn = document.getElementById('backTopBtn');
+if (backTopBtn) {
+    window.addEventListener('scroll', () => {
+        backTopBtn.classList.toggle('visible', window.scrollY > 600);
+    }, { passive: true });
+    backTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+}
+
+/* ── THE UNIFIED FILTER & PAGINATION ENGINE ── */
+const loadMoreBtn = document.getElementById('loadMoreBtn');
+const grid = document.getElementById('blogGrid');
+const countDisplay = document.getElementById('loadMoreCount');
+
+// Global State Trackers
+let currentCategory = 'all';
+let currentOffset = 10;
+
+// Function to fetch data from the Flask API
+async function fetchArticles(offset, category, isAppend) {
+    try {
+        // Ping the new advanced API
+        const response = await fetch(`/api/load_more?offset=${offset}&category=${encodeURIComponent(category)}`);
+        const htmlFragment = await response.text();
+        
+        // Extract metadata from headers
+        const totalInCat = parseInt(response.headers.get('X-Total-Count'));
+        const returnedCount = parseInt(response.headers.get('X-Returned-Count'));
+        
+        if (isAppend) {
+            // "Load More" was clicked: inject at bottom
+            grid.insertAdjacentHTML('beforeend', htmlFragment);
+        } else {
+            // "Category" was clicked: wipe and replace entirely
+            grid.innerHTML = htmlFragment;
+        }
+        
+        // Re-trigger visual entry animations for new cards
+        document.querySelectorAll('.blog-card:not(.visible)').forEach(card => cardObs.observe(card));
+        
+        // Update global offset
+        currentOffset = offset + returnedCount;
+
+        // Button State Engine
+        if (loadMoreBtn) {
+            if (currentOffset >= totalInCat) {
+                // All articles for this category are loaded
+                loadMoreBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>All Articles Loaded</span>`;
+                loadMoreBtn.style.opacity = '0.5';
+                loadMoreBtn.style.pointerEvents = 'none';
+                if(countDisplay) countDisplay.textContent = `Showing all ${totalInCat} articles`;
+            } else {
+                // More articles exist in this category
+                loadMoreBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg><span id="loadMoreText">Load More Articles</span>`;
+                loadMoreBtn.style.opacity = '1';
+                loadMoreBtn.style.pointerEvents = 'auto';
+                if(countDisplay) countDisplay.textContent = `Showing ${currentOffset} of ${totalInCat} articles`;
+            }
+        }
+        
+        // Remove grid loading state
+        grid.style.opacity = '1';
+        
+    } catch (error) {
+        console.error("API Protocol Error:", error);
+        grid.style.opacity = '1';
+    }
+}
+
+// 1. Category Filter Click Listener
+document.querySelectorAll('.cat-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // UI Active State
+        document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        // Update State
+        currentCategory = btn.getAttribute('data-cat');
+        
+        // Visual Fade Out
+        grid.style.opacity = '0.3';
+        grid.style.transition = 'opacity 0.4s ease';
+        
+        // Fetch new category starting from 0, and replace grid
+        fetchArticles(0, currentCategory, false);
+    });
+});
+
+// 2. Load More Click Listener
+if (loadMoreBtn) {
+    loadMoreBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Loading UI
+        loadMoreBtn.innerHTML = `<svg style="animation:spin .8s linear infinite" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.7"/></svg><span id="loadMoreText">Loading Analytics...</span>`;
+        loadMoreBtn.style.pointerEvents = 'none';
+        
+        // Fetch next batch for the current category, and append to grid
+        fetchArticles(currentOffset, currentCategory, true);
+    });
+}
+
+/* ── NEWSLETTER FORM ── */
+const nlForm = document.getElementById('nlForm');
+if (nlForm) {
+    nlForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const btn = e.target.querySelector('.nl-submit');
+        btn.innerHTML = `<span>WELCOME TO THE VAULT ✓</span>`;
+        btn.style.background = '#166534';
+        e.target.querySelectorAll('input, select').forEach(f => f.style.opacity = '.4');
+    });
+}
+/* ── SMART CATEGORY NAV (REVEAL-ON-SCROLL) ── */
+(() => {
+    const catNav = document.getElementById('catNav');
+    if (!catNav) return;
+
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const currentScrollY = window.scrollY;
+
+                // Only engage the hiding logic after scrolling past the hero area (e.g., 400px)
+                if (currentScrollY > 400) {
+                    if (currentScrollY > lastScrollY) {
+                        // User is scrolling DOWN (Reading Mode) -> Hide Nav
+                        catNav.classList.add('is-hidden');
+                    } else {
+                        // User is scrolling UP (Navigation Mode) -> Reveal Nav
+                        catNav.classList.remove('is-hidden');
+                    }
+                } else {
+                    // User is at the top of the page -> Force Reveal
+                    catNav.classList.remove('is-hidden');
+                }
+
+                lastScrollY = currentScrollY;
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true }); // Passive flag ensures scroll performance remains at 60fps
+})();
+
+const sidebar = document.getElementById('socialSidebar');
+const toggleBtn = document.getElementById('toggleBtn');
+
+toggleBtn.addEventListener('click', () => {
+sidebar.classList.toggle('open');
+});
+
+</script>
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+</body>
+</html>
